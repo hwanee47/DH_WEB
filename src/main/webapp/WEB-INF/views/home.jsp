@@ -4,69 +4,51 @@
 <head>
 	<title>Home</title>
 	
-	<!-- Bootstrap core CSS -->
-  <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Material Design Bootstrap -->
-  <link href="${pageContext.request.contextPath}/resources/css/mdb.min.css" rel="stylesheet">
-  <!-- Your custom styles (optional) -->
-  <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
-</head>
+  <link href="${pageContext.request.contextPath}/resources/css/stepper.css" rel="stylesheet">
+</head> 
 <body>
-<h1>
-	Hello world!  
-</h1>
-
-<P>  The time on the server is ${serverTime}. </P>
-<!-- Default form login -->
-<form class="text-center border border-light p-5">
-
-    <p class="h4 mb-4">Sign in</p>
-
-    <!-- Email -->
-    <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
-
-    <!-- Password -->
-    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
-
-    <div class="d-flex justify-content-around">
-        <div>
-            <!-- Remember me -->
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
-                <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
-            </div>
-        </div>
-        <div>
-            <!-- Forgot password -->
-            <a href="">Forgot password?</a>
-        </div>
-    </div>
-
-    <!-- Sign in button -->
-    <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
-
-    <!-- Register -->
-    <p>Not a member?
-        <a href="">Register</a>
-    </p>
-
-    <!-- Social login -->
-    <p>or sign in with:</p>
-
-    <a type="button" class="light-blue-text mx-2">
-        <i class="fa fa-facebook"></i>
-    </a>
-    <a type="button" class="light-blue-text mx-2">
-        <i class="fa fa-twitter"></i>
-    </a>
-    <a type="button" class="light-blue-text mx-2">
-        <i class="fa fa-linkedin"></i>
-    </a>
-    <a type="button" class="light-blue-text mx-2">
-        <i class="fa fa-github"></i>
-    </a>
-
+<!-- multistep form -->
+<form id="msform">
+  <!-- progressbar -->
+  <ul id="progressbar">
+    <li class="active">Account Setup</li>
+    <li>Social Profiles</li>
+    <li>Personal Details</li>
+  </ul>
+  <!-- fieldsets -->
+  <fieldset>
+    <h2 class="fs-title">Create your account</h2>
+    <h3 class="fs-subtitle">This is step 1</h3>
+    <input type="text" name="email" placeholder="Email" />
+    <input type="password" name="pass" placeholder="Password" />
+    <input type="password" name="cpass" placeholder="Confirm Password" />
+    <input type="button" name="next" class="next action-button" value="Next" />
+  </fieldset>
+  <fieldset>
+    <h2 class="fs-title">Social Profiles</h2>
+    <h3 class="fs-subtitle">Your presence on the social network</h3>
+    <input type="text" name="twitter" placeholder="Twitter" />
+    <input type="text" name="facebook" placeholder="Facebook" />
+    <input type="text" name="gplus" placeholder="Google Plus" />
+    <input type="button" name="previous" class="previous action-button" value="Previous" />
+    <input type="button" name="next" class="next action-button" value="Next" />
+  </fieldset>
+  <fieldset>
+    <h2 class="fs-title">Personal Details</h2>
+    <h3 class="fs-subtitle">We will never sell it</h3>
+    <input type="text" name="fname" placeholder="First Name" />
+    <input type="text" name="lname" placeholder="Last Name" />
+    <input type="text" name="phone" placeholder="Phone" />
+    <textarea name="address" placeholder="Address"></textarea>
+    <input type="button" name="previous" class="previous action-button" value="Previous" />
+    <input type="submit" name="submit" class="submit action-button" value="Submit" />
+  </fieldset>
 </form>
-<!-- Default form login -->
+<!-- /.MultiStep Form -->
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'>
+</script>
+<script src="${pageContext.request.contextPath}/resources/js/stepper.js"></script>
+
 </body>
 </html>

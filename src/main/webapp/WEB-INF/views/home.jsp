@@ -4,7 +4,7 @@
 <head>
 	<title>Home</title>
 	
-  <link href="${pageContext.request.contextPath}/resources/css/stepper.css" rel="stylesheet">
+  
 </head> 
 <body>
 <!-- multistep form -->
@@ -45,10 +45,7 @@
   </fieldset>
 </form>
 <!-- /.MultiStep Form -->
-<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
-<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'>
-</script>
-<script src="${pageContext.request.contextPath}/resources/js/stepper.js"></script>
+
 
 </body>
 </html>

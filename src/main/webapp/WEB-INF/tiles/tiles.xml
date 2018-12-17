@@ -1,0 +1,28 @@
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+ 
+<tiles-definitions>
+ 
+    <!-- HWANEE 3.tiles.xml 생성 -->
+    <definition name="layout" template="/WEB-INF/views/tiles/layout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/views/tiles/header.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/tiles/menu.jsp" />        
+        <put-attribute name="footer" value="/WEB-INF/views/tiles/footer.jsp" />
+    </definition>
+ 
+   <definition name="*" extends="layout">
+	   <put-attribute name="body" value="/WEB-INF/views/{1}.jsp"/>
+   </definition>
+   
+   <definition name="*/*" extends="layout">
+	   <put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp"/>
+   </definition>
+   
+   <definition name="*/*/*" extends="layout">
+	   <put-attribute name="body" value="/WEB-INF/views/{1}/{2}/{3}.jsp"/>
+   </definition>
+
+
+</tiles-definitions>

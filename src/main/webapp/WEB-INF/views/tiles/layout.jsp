@@ -5,41 +5,31 @@
 
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/font/font-awesome.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/css/stepper.css" rel="stylesheet">
-</head>
-<body class="wrapper">
-
-	<table width="100%" height="100%" border="1" cellpadding="0" cellspacing="0">
-		<tr>
-			<td colspan="2">
-				<!-- 헤더 부분: 시작 --> 
-				<tiles:insertAttribute name="header" /> 
-				<!-- 헤더 부분: 끝 -->
-			</td>
-		</tr>
-		<tr>
-			<td width="100" valign="top">
-				<!-- 어사이드 부분: 시작 --> 
-				<tiles:insertAttribute name="menu" /> 
-				<!-- 어사이드 부분: 끝 -->
-			</td>
-			<td width="300" valign="top">
-				<!-- 내용 부분: 시작 --> 
-				<tiles:insertAttribute name="body" /> <br><br><br> 
-				<!-- 내용 부분: 끝 -->
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<!-- 푸터 부분: 시작 -->
-				 <tiles:insertAttribute name="footer" /> 
-				 <!-- 푸터 부분: 끝 -->
-			</td>
-		</tr>
-	</table>
-
-<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
 <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/stepper.js"></script>
+</head>
+<body >
+	
+	<tiles:insertAttribute name="header"/>
+	
+	<div class="container-fluid">
+		
+		<div class="row">
+			<tiles:insertAttribute name="menu" />
+			<div class="col-md-9 ml-sm-auto col-lg-10 px-4 mt-3">
+				<tiles:insertAttribute name="body" />
+			</div>
+		</div>
+	</div>
+	
+	
+
 </body>
 </html>

@@ -8,6 +8,7 @@
 </head> 
 <body>
 <!-- multistep form -->
+
 <form id="msform">
   <!-- progressbar -->
   <ul id="progressbar">
@@ -44,8 +45,6 @@
     <input type="submit" name="submit" class="submit action-button" value="Submit" />
   </fieldset>
 </form>
-<!-- /.MultiStep Form -->
-
 
 </body>
 </html>

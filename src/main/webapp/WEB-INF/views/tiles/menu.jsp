@@ -6,7 +6,7 @@
 <html>
 <head>
 
-<link href="${pageContext.request.contextPath}/resources/css/sideMenu.css" rel="stylesheet">
+<%-- <link href="${pageContext.request.contextPath}/resources/css/sideMenu.css" rel="stylesheet"> --%>
 </head>
 <body>
 

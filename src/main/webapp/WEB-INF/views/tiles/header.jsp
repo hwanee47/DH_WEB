@@ -8,8 +8,11 @@
 <link href="${pageContext.request.contextPath}/resources/css/menu.css" rel="stylesheet">
 </head>
 <body>
-<div id="wrapper">11223123123123
-	<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+<form name="selectOne" action="#LINK">
+   <input name="link" type="hidden" />
+</form>
+<div id="wrapper">
+	<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white">
       <a class="navbar-brand" href="#">
       	<img src="${pageContext.request.contextPath}/resources/img/logo.png" alt="" height="20"> DAEHAN
       </a>
@@ -23,7 +26,7 @@
 	          <a href="#"><i class="fas fa-th-list"></i> 기준관리 <span class="arrow"></span></a>
 	        </li>
 	        <ul class="sub-menu collapse" id="products1">
-	            <li><a href="#">거래처관리</a></li>
+	            <li><a href="#" onclick="fn_main_headPageMove('standard/vendManage')">거래처관리</a></li>
 	            <li><a href="#">소재관리</a></li>
 	        </ul>
 	        
@@ -41,6 +44,10 @@
 	        <li>
 	          <a href="#"><i class="far fa-file-alt"></i> Document </a>
 	        </li>
+	        
+	        <ul class="nav nav-sidebar nav-bottom">
+		        <li><a href="https://github.com/hwanee47/DH_WEB/issues" class="link" target="_blank"><i class="fab fa-github"></i> <span class="nav-sidebar-label nav-sidebar-category-label">Github Issues</span></a></li>
+		    </ul>
         </ul>
       	<ul class="navbar-nav top-nav justify-content-end">
           <li class="nav-item active">
@@ -56,19 +63,32 @@
 			</ul>
           </li>
         </ul>
+        
       </div>
       
     </nav>
     
 </div>
 <script>
- $(function(){
-  var sBtn = $("ul > li");    //  ul > li 이를 sBtn으로 칭한다. (클릭이벤트는 li에 적용 된다.)
-  sBtn.find("a").click(function(){   // sBtn에 속해 있는  a 찾아 클릭 하면.
-   sBtn.removeClass("active");     // sBtn 속에 (active) 클래스를 삭제 한다.
-   $(this).parent().addClass("active"); // 클릭한 a에 (active)클래스를 넣는다.
-  })
- })
+	$(function(){
+		var sBtn = $("ul > li");    //  ul > li 이를 sBtn으로 칭한다. (클릭이벤트는 li에 적용 된다.)
+		sBtn.find("a").click(function(){   // sBtn에 속해 있는  a 찾아 클릭 하면.
+		 sBtn.removeClass("active");     // sBtn 속에 (active) 클래스를 삭제 한다.
+		 $(this).parent().addClass("active"); // 클릭한 a에 (active)클래스를 넣는다.
+		 
+		})
+		
+		$(".sub-menu > li > a").click(function(){
+			var subtitle = $(this).text();
+			$(".page-title").text(subtitle);
+		})
+	})
+ 
+	function fn_main_headPageMove(url){
+	    document.selectOne.link.value=url;
+	    document.selectOne.action = "<c:url value='/com/pageLink.do'/>";
+	    document.selectOne.submit();
+	}
 </script>
 
 </body>    

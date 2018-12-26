@@ -36,6 +36,19 @@
 				</tr>
 			  </thead>
 			  <tbody>
+			  	<c:forEach var="vendList" items="${vendList}">
+			  		<tr>
+	    				<th>${vendList.VEND_CD}</th>
+		                <td>${vendList.VEND_NAME}</td>
+		                <td>${vendList.VEND_REP}</td>
+		                <td>${vendList.VEND_NUM}</td>
+		                <td>${vendList.VEND_ADDR}</td>
+		                <td>${vendList.VEND_TEL}</td>
+		                <td>${vendList.VEND_FAX}</td>
+		                <td class="text-center"><button class="btn btn-outline-danger del-icon"><i class="fas fa-trash-alt"></i></button></td>
+	            	</tr>
+			  	</c:forEach>
+			  
 				<tr>
 				  <th>1</th>
 				  <td>대한정밀</td>

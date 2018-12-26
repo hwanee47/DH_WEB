@@ -1,6 +1,7 @@
 package com.daehan.standard.dao.impl;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
@@ -24,8 +25,14 @@ public class StandardDAOImpl extends AbstractDAO implements StandardDAO{
 	private static final Logger logger = Logger.getLogger(StandardDAOImpl.class);
 
 	@Override
-	public void addVend(HashMap<String, Object> map) throws Exception {
-		System.out.println("여까지오나?");
-		
+	public List<HashMap<String, String>> selectVendList() throws Exception {
+		return selectList("Standard.selectVendList");
 	}
+	
+	@Override
+	public void insertVend(HashMap<String, Object> map) throws Exception {
+		insert("Standard.insertVend", map);
+	}
+
+	
 }

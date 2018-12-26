@@ -17,12 +17,12 @@
 	
 	.navbar-nav.side-nav {
           overflow: visible;
-          font-size: .9375rem;
+          font-size: 14px;
           background: linear-gradient(135deg,#8f75da 0,#727cf5 60%);
           position: fixed;
           padding: 80px 30px;
           height: 100%;
-          width: 250px;
+          width: 20%;
           color: #e1ffff;
     }
 
@@ -149,5 +149,6 @@
 	    text-decoration: none;
 	    content: "\f105";
 	}
+	
 }
 

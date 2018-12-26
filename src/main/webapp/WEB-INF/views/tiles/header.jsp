@@ -23,7 +23,7 @@
       	<ul class="navbar-nav side-nav">	
 	      	<li class="side-nav-title side-nav-item">STANDARD</li>
 	        <li  data-toggle="collapse" data-target="#products1" class="nav-item collapsed active">
-	          <a href="#"><i class="fas fa-th-list"></i> 기준관리 <span class="arrow"></span></a>
+	          <a href="#"><i class="fas fa-list-alt"></i> 기준관리 <span class="arrow"></span></a>
 	        </li>
 	        <ul class="sub-menu collapse" id="products1">
 	            <li><a href="#" onclick="fn_main_headPageMove('standard/vendManage')">거래처관리</a></li>
@@ -32,7 +32,7 @@
 	        
 	        <li class="side-nav-title side-nav-item">STOCK</li>
 	        <li  data-toggle="collapse" data-target="#products2" class="nav-item collapsed active">
-	          <a href="#"><i class="fas fa-th-list"></i> 재고관리 <span class="arrow"></span></a>
+	          <a href="#"><i class="fas fa-list-alt"></i> 재고관리 <span class="arrow"></span></a>
 	        </li>
 	        <ul class="sub-menu collapse" id="products2">
 	            <li><a href="#">출고명세서 출력</a></li>
@@ -48,6 +48,7 @@
 	        <ul class="nav nav-sidebar nav-bottom">
 		        <li><a href="https://github.com/hwanee47/DH_WEB/issues" class="link" target="_blank"><i class="fab fa-github"></i> <span class="nav-sidebar-label nav-sidebar-category-label">Github Issues</span></a></li>
 		    </ul>
+		   
         </ul>
       	<ul class="navbar-nav top-nav justify-content-end">
           <li class="nav-item active">
@@ -82,6 +83,8 @@
 			var subtitle = $(this).text();
 			$(".page-title").text(subtitle);
 		})
+		
+		
 	})
  
 	function fn_main_headPageMove(url){

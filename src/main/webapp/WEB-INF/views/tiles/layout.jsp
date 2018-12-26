@@ -6,11 +6,10 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/resources/css/font/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <link href="${pageContext.request.contextPath}/resources/css/common.css" rel="stylesheet">
 <script src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
 
@@ -23,9 +22,9 @@
 
 	<tiles:insertAttribute name="header"/>
 	
-	<div class="content-page" >
+	<div class="content-page container-fluid" >
 		<div class="row">
-			<div class="mt-3" style="overflow:auto">
+			<div class="mt-3" style="overflow: auto; width:100%;">
 				<tiles:insertAttribute name="body" />
 			</div>
 		</div>

@@ -1,5 +1,6 @@
 body{
 	background-color: #fafbfe;	
+	
 }
 
 *{
@@ -26,6 +27,7 @@ body{
     color: #5867dd; 
     border: 1px solid #e8ecfa;
     font-weight:bold;
+    margin-right: 5px;
 }
 
 .btn.btn-default:hover {
@@ -48,10 +50,13 @@ body{
 
 
 @media(min-width:992px) {
-	
+	table{
+		font-size: 15px;
+	}
+		
 
 	.content-page {
-	    margin-left: 250px;
+	    margin-left: 20%;
 	    overflow: hidden;
 	    padding: 5px 50px;
 	    min-height: 80vh;

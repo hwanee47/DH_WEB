@@ -6,6 +6,7 @@
 <head>
 </head> 
 <body>
+	<form  method="post" class="form_search" style="display:none"></form>
 	<div class="page-title-box">
 		<h4 class="page-title">기준관리 > 거래처관리</h4>
 	</div>
@@ -45,20 +46,10 @@
 		                <td>${vendList.VEND_ADDR}</td>
 		                <td>${vendList.VEND_TEL}</td>
 		                <td>${vendList.VEND_FAX}</td>
-		                <td class="text-center"><button class="btn btn-outline-danger del-icon"><i class="fas fa-trash-alt"></i></button></td>
+		                <td class="text-center"><button class="btn btn-outline-danger del-icon btn_delete"><i class="fas fa-trash-alt"></i></button></td>
 	            	</tr>
 			  	</c:forEach>
 			  
-				<tr>
-				  <th>1</th>
-				  <td>대한정밀</td>
-				  <td>김현찬</td>
-				  <td>○○○-○○-○○○○○</td>
-				  <td>경상남도 진주시 상평동 267-2</td>
-				  <td>055-762-8476</td>
-				  <td>055-762-8476</td>
-				  <td class="text-center"><button class="btn btn-outline-danger del-icon"><i class="fas fa-trash-alt"></i></button></td>
-				</tr>
 			</tbody>
 		  </table>
 		</div>
@@ -143,6 +134,14 @@
 		  
 		}, false);
 	  
+		
+		/*조회버튼 클릭*/
+		$(".btn_search").click(function(){
+			$(".form_search").attr('action','${pageContext.request.contextPath}/standard/searchVendList.do').submit();	
+		});
+		
+		
+		/*저장버튼 클릭*/
 		$(".btn_save").click(function(){
 			$(".needs-validation button").click();
 			
@@ -150,7 +149,34 @@
 			{
 				$(".needs-validation").attr('action','${pageContext.request.contextPath}/standard/addVend.do').submit();
 			}
-		})
+		});
+		
+		
+		/*삭제버튼 클릭*/
+		$(".btn_delete").click(function(){
+			
+			if(confirm("삭제하시겠습니까?") == false) return;
+			
+			var vendCd = $(this).parents("tr").children().eq(0).text();
+			
+			$.ajax({
+				type : 'post',
+				url : '${pageContext.request.contextPath}/standard/deleteVend.do?vendCd='+vendCd,
+				dataType : 'json',
+				error : function(xhr, status){
+					console.log("ajax error");
+					
+				},
+				success : function(data, status){
+					if(data.result.status)
+					{
+						alert("삭제완료.");
+					}
+					
+				}
+			});
+			
+		});
 	})();
 </script>
 </body>

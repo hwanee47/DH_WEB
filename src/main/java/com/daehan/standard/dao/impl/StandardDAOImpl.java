@@ -12,13 +12,6 @@ import com.daehan.standard.dao.StandardDAO;
 /**
  * @Class Name : StandardDAOImpl.java
  * @Description : 
- * @Modification Information
- * @
- * @  수정일         수정자                   수정내용
- * @ -------    --------    ---------------------------
- * @ 2018.12.26    김진환          최초 생성
- *
- *  
  */
 @Repository
 public class StandardDAOImpl extends AbstractDAO implements StandardDAO{
@@ -32,6 +25,11 @@ public class StandardDAOImpl extends AbstractDAO implements StandardDAO{
 	@Override
 	public void insertVend(HashMap<String, Object> map) throws Exception {
 		insert("Standard.insertVend", map);
+	}
+
+	@Override
+	public void deleteVend(HashMap<String, Object> map) throws Exception {
+		delete("Standard.deleteVend", map);
 	}
 
 	

@@ -28,5 +28,10 @@ public class StandardServiceImpl implements StandardService{
 		standardDAO.insertVend(map);
 	}
 
+	@Override
+	public void deleteVend(HashMap<String, Object> map) throws Exception {
+		standardDAO.deleteVend(map);
+	}
+
 	
 }

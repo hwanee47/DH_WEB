@@ -2,6 +2,7 @@ package com.daehan.standard;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -13,8 +14,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.daehan.common.model.Result;
 import com.daehan.standard.service.StandardService;
 
 /**
@@ -31,14 +33,12 @@ public class StandardController {
 	private static final Logger logger = LoggerFactory.getLogger(StandardController.class);
 	
 	@RequestMapping(value = "/searchVendList.do")
-	public ModelAndView searchVendList(HttpServletRequest request, @RequestParam(value="program", required=false) String program, ModelMap model) throws Exception{
-		ModelAndView mav = new ModelAndView();
+	public String searchVendList(HttpServletRequest request, @RequestParam(value="program", required=false) String program, ModelMap model) throws Exception{
 		List<HashMap<String,String>> list = standardService.searchVendList();
 		
-		mav.addObject("vendList", list);
-		mav.setViewName("standard/vendManage");
+		model.addAttribute("vendList", list);
 		
-		return mav;
+		return "standard/vendManage";
 	}
 	
 	
@@ -51,6 +51,19 @@ public class StandardController {
 		model.addAttribute("msg", "등록하였습니다.");
 		
 		return "redirect:/standard/searchVendList.do";
+	}
+	
+	
+	@RequestMapping(value = "/deleteVend.do", method = RequestMethod.POST)
+	@ResponseBody
+	public Object deleteVend(HttpServletRequest request, @RequestParam HashMap<String, Object> map, ModelMap model) throws Exception{
+        Map<String, Object> retVal = new HashMap<String, Object>();
+        
+		standardService.deleteVend(map);
+		
+		retVal.put("result", Result.ok());
+		
+		return retVal;
 	}
 	
 }

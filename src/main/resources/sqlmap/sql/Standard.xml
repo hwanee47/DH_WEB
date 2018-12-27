@@ -15,23 +15,23 @@
     	/*Standard.insertVend*/
     	INSERT INTO MNG_VEND_TB
     	(
-    		VEND_NAME
+    		VEND_CD
+    		,VEND_NAME
     		,VEND_REP
     		,VEND_NUM
     		,VEND_ADDR
     		,VEND_TEL
     		,VEND_FAX
     	)
-    	VALUES
-    	(
-    		#{vendName}
+    	SELECT
+    		(SELECT IFNULL(MAX(VEND_CD),0)+1 FROM MNG_VEND_TB) 
+    		,#{vendName}
     		,#{vendRep}
     		,#{vendNum}
     		,#{vendAddr}
     		,#{vendTel}
     		,#{vendFax}
-    	)
-    	
+    	;
     </insert>
 
 	<delete id="deleteVend" parameterType="Map">

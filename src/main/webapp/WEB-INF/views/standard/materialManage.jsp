@@ -8,12 +8,12 @@
 <body>
 	<form  method="post" class="form_search" style="display:none"></form>
 	<div class="page-title-box">
-		<h4 class="page-title">기준관리 > 거래처관리</h4>
+		<h4 class="page-title">기준관리 > 소재관리</h4>
 	</div>
 	<div class="jumbotron container-main">
 		<div class="row table_title">
 			<div class="col-9">
-				<h5 class="display-7">거래처 목록</h1>
+				<h5 class="display-7">거래처별 소재 목록</h1>
 			</div>
 			<div class="col-3 justify-content-end">
 				<a href="#" class="btn btn-default btn-sm btn-bold btn-upper float-right btn_search">조 회</a>
@@ -27,11 +27,12 @@
 				<tr style="">
 				  <th style="width:5%;">#</th>
 				  <th style="width:15%;">거래처명</th>  
-				  <th style="width:10%;">대표자</th> 
-				  <th style="width:15%;">사업자번호</th> 
-				  <th style="width:30%;">주소</th>     
-				  <th style="width:15%">전화번호</th> 
-				  <th style="width:15%;">팩스번호</th>
+				  <th style="width:10%;">기종</th> 
+				  <th style="width:15%;">품번</th> 
+				  <th style="width:15%;">품명</th>     
+				  <th style="width:15%">재질</th> 
+				  <th style="width:15%;">열처리경도</th>
+				  <th style="width:20%;">비고</th>
 				  <th style="width:5%;" class="text-center"><i class="fas fa-cogs"></i></th>  
 				  
 				</tr>
@@ -60,7 +61,7 @@
 	  <div class="modal-dialog modal-dialog-centered" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header bg-light">
-	        <h5 class="modal-title" id="exampleModalLabel">거래처 추가 </h5>
+	        <h5 class="modal-title" id="exampleModalLabel">소재 추가 </h5>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
@@ -68,34 +69,48 @@
 	      <div class="modal-body">
 	        <form class="needs-validation"  method="post" novalidate>
 			  <div class="form-row">
-			    <div class="col-md-8 mb-3">
+			    <div class="col-md-11 mb-3">
 			      <label for="validationCustom01">거래처 명</label>
-			      <input type="text" class="form-control" id="validationCustom01" name="vendName" placeholder="거래처명을 입력하세요." required>
+			      <div class="row">
+				      <div class="col-2">
+				      	<input type="text" class="form-control" id="validationCustom01" name="vendName" placeholder="거래처명을 입력하세요." required>
+				      </div>
+				      <div class="col-8" style="margin-left:-5%;">
+				      	<input type="text" class="form-control" id="validationCustom01" name="vendName" placeholder="거래처명을 입력하세요." required>
+				      </div>
+				      <div class="col-2" style="margin-left:-5%;">
+				      	<button type="button" class="btn btn-outline-info form-control btn_popup_vend"><i class="fas fa-search"></i></button>
+				      </div>
+			      </div>
 			      <div class="invalid-feedback">
 			      	거래처명을 입력하세요.
 			      </div>
 			    </div>
 			    <div class="col-md-8 mb-3">
-			      <label for="validationCustom02">대표자</label>
+			      <label for="validationCustom02">기종</label>
 			      <input type="text" class="form-control" id="validationCustom02" name="vendRep" placeholder="대표자를 입력하세요." required>
 			      <div class="invalid-feedback">
 			      	대표자를 입력하세요.
 			      </div>
 			    </div>
 			    <div class="col-md-8 mb-3">
-			      <label for="validationCustom02">사업자 번호</label>
+			      <label for="validationCustom02">품번</label>
 			      <input type="text" class="form-control" id="validationCustom02" name="vendNum">
 			    </div>
 			    <div class="col-md-8 mb-3">
-			      <label for="validationCustom02">주소</label>
+			      <label for="validationCustom02">품명</label>
+			      <input type="text" class="form-control" id="validationCustom02" name="vendNum">
+			    </div>
+			    <div class="col-md-8 mb-3">
+			      <label for="validationCustom02">재질</label>
 			      <input type="text" class="form-control" id="validationCustom02" name="vendAddr">
 			    </div>
 			    <div class="col-md-8 mb-3">
-			      <label for="validationCustom02">전화번호</label>
+			      <label for="validationCustom02">열처리경도</label>
 			      <input type="text" class="form-control" id="validationCustom02" name="vendTel">
 			    </div>
 			    <div class="col-md-8 mb-3">
-			      <label for="validationCustom02">팩스번호</label>
+			      <label for="validationCustom02">비고</label>
 			      <input type="text" class="form-control" id="validationCustom02" name="vendFax">
 			    </div>
 			 	<button class="btn btn-primary sr-only" type="submit">Submit form</button>
@@ -134,6 +149,11 @@
 		  
 		}, false);
 	  
+		/*거래처조회버튼 클릭*/
+		$(".btn_popup_vend").click(function(){
+			alert("VEND POPUP!");
+		})
+		
 		
 		/*조회버튼 클릭*/
 		$(".btn_search").click(function(){
@@ -142,14 +162,14 @@
 		
 		
 		/*저장버튼 클릭*/
-		$(".btn_save").click(function(){
-			$(".needs-validation button").click();
+// 		$(".btn_save").click(function(){
+// 			$(".needs-validation button").click();
 			
-			if(validationFlag)
-			{
-				$(".needs-validation").attr('action','${pageContext.request.contextPath}/standard/addVend.do').submit();
-			}
-		});
+// 			if(validationFlag)
+// 			{
+// 				$(".needs-validation").attr('action','${pageContext.request.contextPath}/standard/addVend.do').submit();
+// 			}
+// 		});
 		
 		
 		/*삭제버튼 클릭*/

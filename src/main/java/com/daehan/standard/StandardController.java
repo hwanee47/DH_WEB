@@ -47,9 +47,6 @@ public class StandardController {
 		
 		standardService.addVend(map);
 		
-		model.addAttribute("code", "1");
-		model.addAttribute("msg", "등록하였습니다.");
-		
 		return "redirect:/standard/searchVendList.do";
 	}
 	

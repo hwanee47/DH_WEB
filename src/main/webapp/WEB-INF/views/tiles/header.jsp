@@ -27,7 +27,7 @@
 	        </li>
 	        <ul class="sub-menu collapse" id="products1">
 	            <li><a href="#" onclick="fn_main_headPageMove('standard/vendManage')">거래처관리</a></li>
-	            <li><a href="#">소재관리</a></li>
+	            <li><a href="#" onclick="fn_main_headPageMove('standard/materialManage')">소재관리</a></li>
 	        </ul>
 	        
 	        <li class="side-nav-title side-nav-item">STOCK</li>
@@ -78,12 +78,6 @@
 		 $(this).parent().addClass("active"); // 클릭한 a에 (active)클래스를 넣는다.
 		 
 		})
-		
-		$(".sub-menu > li > a").click(function(){
-			var subtitle = $(this).text();
-			$(".page-title").text(subtitle);
-		})
-		
 		
 	})
  

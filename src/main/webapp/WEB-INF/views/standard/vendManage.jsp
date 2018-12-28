@@ -24,7 +24,7 @@
 		<div class="table-responsive">
 		  <table border="0" class="table cust-table" style="width:100%"> 
 			<thead>
-				<tr style="">
+				<tr>
 				  <th style="width:5%;">#</th>
 				  <th style="width:15%;">거래처명</th>  
 				  <th style="width:10%;">대표자</th> 
@@ -33,7 +33,6 @@
 				  <th style="width:15%">전화번호</th> 
 				  <th style="width:15%;">팩스번호</th>
 				  <th style="width:5%;" class="text-center"><i class="fas fa-cogs"></i></th>  
-				  
 				</tr>
 			  </thead>
 			  <tbody>
@@ -137,7 +136,7 @@
 		
 		/*조회버튼 클릭*/
 		$(".btn_search").click(function(){
-			$(".form_search").attr('action','${pageContext.request.contextPath}/standard/searchVendList.do').submit();	
+			$(".form_search").attr('action','${pageContext.request.contextPath}/standard/searchVendList.do?program=standard/vendManage').submit();	
 		});
 		
 		

@@ -38,7 +38,7 @@ public class StandardController {
 		
 		model.addAttribute("vendList", list);
 		
-		return "standard/vendManage";
+		return program;
 	}
 	
 	
@@ -47,7 +47,7 @@ public class StandardController {
 		
 		standardService.addVend(map);
 		
-		return "redirect:/standard/searchVendList.do";
+		return "redirect:/standard/searchVendList.do?program=standard/vendManage";
 	}
 	
 	

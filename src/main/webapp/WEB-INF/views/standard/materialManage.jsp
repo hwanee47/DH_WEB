@@ -4,6 +4,15 @@
 <%@ page session="false" %>
 <html>
 <head>
+<link href="${pageContext.request.contextPath}/resources/css/stepper.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/select/1.2.7/css/select.dataTables.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
+
+<script src='https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'></script>	
+<script src='https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js'></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
 </head> 
 <body>
 	<form  method="post" class="form_search" style="display:none"></form>
@@ -17,7 +26,7 @@
 			</div>
 			<div class="col-3 justify-content-end">
 				<a href="#" class="btn btn-default btn-sm btn-bold btn-upper float-right btn_search">조 회</a>
-				<a href="#" class="btn btn-default btn-sm btn-bold btn-upper float-right btn_add" data-toggle="modal" data-target="#addModal">추 가</a>
+				<a href="#" class="btn btn-default btn-sm btn-bold btn-upper float-right btn_add">추 가</a>
 			</div>
 		</div>
   		<hr class="my-1">
@@ -56,6 +65,8 @@
 		</div>
 	</div>
 		
+		
+		
 	<!-- Modal -->
 	<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-dialog-centered" role="document">
@@ -67,23 +78,70 @@
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	        <form class="needs-validation"  method="post" novalidate>
+	      	<form class="mb-3" id="msform">
+			  <ul class="row justify-content-center" id="progressbar">
+			    <li class="active">거래처 선택</li>
+			    <li>소재정보 입력</li>
+			  </ul>
+			  <fieldset>
+			    <h3 class="fs-title">어떤 거래처의 소재인가요?</h3>
+			    <hr class="my-1 mb-2">
+		 		<table id="datatable" class="display responsive nowrap" cellspacing="0" width="100%">
+			    	<thead>
+				    	<tr>
+						   <th>거래처코드</th>
+			                <th>거래처 명</th>
+			                <th class="none">대표자</th>
+			                <th class="none">사업자 번호</th>
+			                <th class="none">주소</th>
+			                <th class="none">전화번호</th>
+			                <th class="none">팩스번호</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="vendList" items="${vendList}">
+					  		<tr>
+			    				<th>${vendList.VEND_CD}</th>
+				                <td>${vendList.VEND_NAME}</td>
+				                <td>${vendList.VEND_REP}</td>
+				                <td>${vendList.VEND_NUM}</td>
+				                <td>${vendList.VEND_ADDR}</td>
+				                <td>${vendList.VEND_TEL}</td>
+				                <td>${vendList.VEND_FAX}</td>
+			            	</tr>
+					  	</c:forEach>
+					</tbody>
+			    </table>
+				<input type="button" name="next" class="next action-button" value="Next" />
+			  </fieldset>
+			  <fieldset>
+			    <h2 class="fs-title">Social Profiles</h2>
+			    <h3 class="fs-subtitle">Your presence on the social network</h3>
+			    <input type="text" name="twitter" placeholder="Twitter" />
+			    <input type="text" name="facebook" placeholder="Facebook" />
+			    <input type="text" name="gplus" placeholder="Google Plus" />
+			    <input type="button" name="previous" class="previous action-button" value="이전" />
+			    <input type="submit" name="submit" class="submit action-button" value="저장" />
+			  </fieldset>
+			</form>
+	      
+	       <!--  <form class="needs-validation"  method="post" novalidate>
 			  <div class="form-row">
 			    <div class="col-md-11 mb-3">
 			      <label for="validationCustom01">거래처 명</label>
 			      <div class="row">
-				      <div class="col-2">
-				      	<input type="text" class="form-control" id="validationCustom01" name="vendName" placeholder="거래처명을 입력하세요." required>
+				      <div class="col-3">
+				      	<input type="text" class="form-control" id="validationCustom01" name="vendName" disabled required>
 				      </div>
 				      <div class="col-8" style="margin-left:-5%;">
-				      	<input type="text" class="form-control" id="validationCustom01" name="vendName" placeholder="거래처명을 입력하세요." required>
+				      	<input type="text" class="form-control" id="validationCustom01" name="vendName" disabled required>
 				      </div>
-				      <div class="col-2" style="margin-left:-5%;">
-				      	<button type="button" class="btn btn-outline-info form-control btn_popup_vend"><i class="fas fa-search"></i></button>
+				      <div class="col" style="margin-left:-5%;">
+				      	<button type="button" class="btn btn-outline-info form-control btn_popup_vend" data-toggle="modal" data-target="#vendModal"><i class="fas fa-search"></i></button>
 				      </div>
 			      </div>
 			      <div class="invalid-feedback">
-			      	거래처명을 입력하세요.
+			      	거래처를 선택해주세요.
 			      </div>
 			    </div>
 			    <div class="col-md-8 mb-3">
@@ -115,17 +173,35 @@
 			    </div>
 			 	<button class="btn btn-primary sr-only" type="submit">Submit form</button>
 			 </div>
-			</form>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default btn-sm btn-bold btn-upper btn_save">저장</button>
-	        <button type="button" class="btn btn-default btn-sm btn-bold btn-upper" data-dismiss="modal">취소</button>
+			</form> -->
 	      </div>
 	    </div>
 	  </div>
 	</div>	
 	
 <script>
+	
+
+
+	$(document).ready(function() {
+		
+		
+		var table = $('#datatable').dataTable({
+				
+				select: true,
+				paging: false,
+				info: false,
+				language: {
+					search: "",
+					searchPlaceholder: "거래처 입력"
+				},
+				responsive: true
+				
+		});
+		
+		
+	} );
+
 	(function() {
 		var validationFlag;
 		'use strict';
@@ -149,10 +225,37 @@
 		  
 		}, false);
 	  
+		
+		$(".btn_add").click(function(){
+			alert(123);
+			$.ajax({
+				type : 'get',
+				url : '${pageContext.request.contextPath}/standard/searchVendList.do?program=standard/materialManage',
+				dataType : 'json',
+				error : function(xhr, status){
+					console.log("ajax error");
+					
+				},
+				success : function(data, status){
+					alert(data);
+					if(data.result.status)
+					{
+						alert(data);
+					}
+					
+				}
+			});
+			
+			//$(".form_search").attr('action','${pageContext.request.contextPath}/standard/searchVendList.do?program=standard/materialManage').submit();
+			
+			//$('#addModal').modal('show'); 
+		});
+		
+		
 		/*거래처조회버튼 클릭*/
 		$(".btn_popup_vend").click(function(){
 			alert("VEND POPUP!");
-		})
+		});
 		
 		
 		/*조회버튼 클릭*/

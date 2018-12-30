@@ -35,7 +35,7 @@
 				  <th style="width:5%;" class="text-center"><i class="fas fa-cogs"></i></th>  
 				</tr>
 			  </thead>
-			  <tbody>
+			  <%-- <tbody>
 			  	<c:forEach var="vendList" items="${vendList}">
 			  		<tr>
 	    				<th>${vendList.VEND_CD}</th>
@@ -49,7 +49,7 @@
 	            	</tr>
 			  	</c:forEach>
 			  
-			</tbody>
+			</tbody> --%>
 		  </table>
 		</div>
 	</div>
@@ -65,7 +65,7 @@
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	        <form class="needs-validation"  method="post" novalidate>
+	        <form class="needs-validation"  method="post" onsubmit="return false;" novalidate>
 			  <div class="form-row">
 			    <div class="col-md-8 mb-3">
 			      <label for="validationCustom01">거래처 명</label>
@@ -103,7 +103,7 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default btn-sm btn-bold btn-upper btn_save">저장</button>
-	        <button type="button" class="btn btn-default btn-sm btn-bold btn-upper" data-dismiss="modal">취소</button>
+	        <button type="button" class="btn btn-default btn-sm btn-bold btn-upper btn_cancel" data-dismiss="modal">취소</button>
 	      </div>
 	    </div>
 	  </div>
@@ -136,24 +136,29 @@
 		
 		/*조회버튼 클릭*/
 		$(".btn_search").click(function(){
-			$(".form_search").attr('action','${pageContext.request.contextPath}/standard/searchVendList.do?program=standard/vendManage').submit();	
+			$.ajax({
+				type : 'get',
+				url : '${pageContext.request.contextPath}/standard/searchVendList.do',
+				dataType : 'json',
+				error : function(xhr, status){
+					console.log("ajax error");
+					
+				},
+				success : function(data, status){
+					if(data.result.status)
+					{
+						//console.log(data);
+						fn_CreateTable(data.list);
+					}
+					
+				}
+			});
 		});
 		
 		
-		/*저장버튼 클릭*/
-		$(".btn_save").click(function(){
-			$(".needs-validation button").click();
-			
-			if(validationFlag)
-			{
-				$(".needs-validation").attr('action','${pageContext.request.contextPath}/standard/addVend.do').submit();
-			}
-		});
-		
-		
-		/*삭제버튼 클릭*/
-		$(".btn_delete").click(function(){
-			
+
+		/*동적으로 생성된 태그는 다음과 같이 이벤트를 주어야함.*/
+		$(document).on("click", ".btn_delete", function() {
 			if(confirm("삭제하시겠습니까?") == false) return;
 			
 			var trObj = $(this).parents("tr");
@@ -176,9 +181,76 @@
 					
 				}
 			});
+	    });
+		
+		
+		function fn_CreateTable(list)
+		{
+		    // ajax로 추가했던 테이블 제거
+		    $(".new-tbody").remove();
 			
+			$newTbody = $("<tbody class='new-tbody'></tbody>");
+			
+			$(".cust-table").append($newTbody);
+			
+			for(var i=0; i<list.length; i++)
+			{
+				var rowData = list[i];
+				var str = '<tr>'
+					+'<td>'+rowData.VEND_CD+'</td>'
+					+'<td>'+rowData.VEND_NAME+'</td>'
+					+'<td>'+rowData.VEND_REP+'</td>'
+					+'<td>'+rowData.VEND_NUM+'</td>'
+					+'<td>'+rowData.VEND_ADDR+'</td>'
+					+'<td>'+rowData.VEND_TEL+'</td>'
+					+'<td>'+rowData.VEND_FAX+'</td>'
+					+'<td class="text-center"><button class="btn btn-outline-danger del-icon btn_delete"><i class="fas fa-trash-alt"></i></button></td>"'
+					+'</tr>';
+					
+				$newTbody.append(str);
+			}
+			
+		}
+		
+		
+		
+		/*저장버튼 클릭*/
+		$(".btn_save").click(function(){
+			event.preventDefault();
+			
+			$(".needs-validation button").click();
+			
+			var sendData = $(".needs-validation").serialize();
+			
+			$.ajax({
+				type : 'post',
+				url : '${pageContext.request.contextPath}/standard/addVend.do',
+				data : sendData,
+				dataType : 'json',
+				error : function(xhr, status){
+					console.log("ajax error");
+					
+				},
+				success : function(data, status){
+ 					if(data.result.status)
+					{ 					
+ 						fn_CreateTable(data.list);
+ 						
+ 						$('#addModal').modal('toggle');
+ 					}
+					
+				}
+			});
+			
+			/*  if(validationFlag)
+			{
+				$(".needs-validation").attr('action','${pageContext.request.contextPath}/standard/addVend.do').submit();
+			} */
 		});
+		
 	})();
+	
+	
 </script>
 </body>
 </html>

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.daehan.common.model.Result;
 import com.daehan.standard.service.StandardService;
@@ -33,18 +34,20 @@ public class StandardController {
 	private static final Logger logger = LoggerFactory.getLogger(StandardController.class);
 	
 	@RequestMapping(value = "/searchVendList.do")
-	public String searchVendList(HttpServletRequest request, @RequestParam(value="program", required=false) String program, ModelMap model) throws Exception{
+	public ModelAndView searchVendList(HttpServletRequest request, @RequestParam(value="program", required=false) String program, ModelMap model) throws Exception{
+		ModelAndView mv = new ModelAndView();
 		List<HashMap<String,String>> list = standardService.searchVendList();
 		
-		model.addAttribute("vendList", list);
+		mv.setViewName("jsonView");
+		mv.addObject("result", Result.ok());
+		mv.addObject("list", list);
 		
-		return program;
+		return mv;
 	}
 	
 	
 	@RequestMapping(value = "/addVend.do", method = RequestMethod.POST)
 	public String addVend(HttpServletRequest request, @RequestParam HashMap<String, Object> map, ModelMap model) throws Exception {
-		
 		standardService.addVend(map);
 		
 		return "redirect:/standard/searchVendList.do?program=standard/vendManage";

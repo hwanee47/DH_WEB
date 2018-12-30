@@ -227,20 +227,18 @@
 	  
 		
 		$(".btn_add").click(function(){
-			alert(123);
 			$.ajax({
 				type : 'get',
-				url : '${pageContext.request.contextPath}/standard/searchVendList.do?program=standard/materialManage',
+				url : '${pageContext.request.contextPath}/standard/searchVendList.do',
 				dataType : 'json',
 				error : function(xhr, status){
 					console.log("ajax error");
 					
 				},
 				success : function(data, status){
-					alert(data);
 					if(data.result.status)
 					{
-						alert(data);
+						fn_CreateTable(data.list);
 					}
 					
 				}

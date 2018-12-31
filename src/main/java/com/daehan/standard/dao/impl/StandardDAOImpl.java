@@ -32,5 +32,19 @@ public class StandardDAOImpl extends AbstractDAO implements StandardDAO{
 		delete("Standard.deleteVend", map);
 	}
 
-	
+	@Override
+	public void insertMaterial(HashMap<String, Object> map) throws Exception {
+		insert("Standard.insertMaterial", map);
+	}
+
+	@Override
+	public List<HashMap<String, String>> selectMaterialList() throws Exception {
+		return selectList("Standard.selectMaterialList");
+	}
+
+	@Override
+	public void deleteMaterial(HashMap<String, Object> map) throws Exception {
+		delete("Standard.deleteMaterial", map);
+	}
+
 }

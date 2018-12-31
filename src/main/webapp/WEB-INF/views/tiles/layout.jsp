@@ -35,7 +35,7 @@
 		</div>
 	</div>
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/stepper.js"></script>
+
 <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
 </body>
 </html>

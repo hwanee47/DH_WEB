@@ -35,21 +35,6 @@
 				  <th style="width:5%;" class="text-center"><i class="fas fa-cogs"></i></th>  
 				</tr>
 			  </thead>
-			  <%-- <tbody>
-			  	<c:forEach var="vendList" items="${vendList}">
-			  		<tr>
-	    				<th>${vendList.VEND_CD}</th>
-		                <td>${vendList.VEND_NAME}</td>
-		                <td>${vendList.VEND_REP}</td>
-		                <td>${vendList.VEND_NUM}</td>
-		                <td>${vendList.VEND_ADDR}</td>
-		                <td>${vendList.VEND_TEL}</td>
-		                <td>${vendList.VEND_FAX}</td>
-		                <td class="text-center"><button class="btn btn-outline-danger del-icon btn_delete"><i class="fas fa-trash-alt"></i></button></td>
-	            	</tr>
-			  	</c:forEach>
-			  
-			</tbody> --%>
 		  </table>
 		</div>
 	</div>
@@ -148,7 +133,7 @@
 					if(data.result.status)
 					{
 						//console.log(data);
-						fn_CreateTable(data.list);
+						fn_CreateTable(data.data);
 					}
 					
 				}
@@ -183,8 +168,36 @@
 			});
 	    });
 		
+		/*저장버튼 클릭*/
+		$(".btn_save").click(function(){
+			
+			$(".needs-validation button").click();
+			
+			var sendData = $(".needs-validation").serialize();
+			
+			$.ajax({
+				type : 'post',
+				url : '${pageContext.request.contextPath}/standard/addVend.do',
+				data : sendData,
+				dataType : 'json',
+				error : function(xhr, status){
+					console.log("ajax error");
+					
+				},
+				success : function(data, status){
+ 					if(data.result.status)
+					{ 					
+ 						fn_CreateTable(data.data);
+ 						
+ 						$('#addModal').modal('toggle');
+ 					}
+					
+				}
+			});
+		});
 		
-		function fn_CreateTable(list)
+		
+		function fn_CreateTable(data)
 		{
 		    // ajax로 추가했던 테이블 제거
 		    $(".new-tbody").remove();
@@ -193,9 +206,9 @@
 			
 			$(".cust-table").append($newTbody);
 			
-			for(var i=0; i<list.length; i++)
+			for(var i=0; i<data.length; i++)
 			{
-				var rowData = list[i];
+				var rowData = data[i];
 				var str = '<tr>'
 					+'<td>'+rowData.VEND_CD+'</td>'
 					+'<td>'+rowData.VEND_NAME+'</td>'
@@ -214,39 +227,7 @@
 		
 		
 		
-		/*저장버튼 클릭*/
-		$(".btn_save").click(function(){
-			event.preventDefault();
-			
-			$(".needs-validation button").click();
-			
-			var sendData = $(".needs-validation").serialize();
-			
-			$.ajax({
-				type : 'post',
-				url : '${pageContext.request.contextPath}/standard/addVend.do',
-				data : sendData,
-				dataType : 'json',
-				error : function(xhr, status){
-					console.log("ajax error");
-					
-				},
-				success : function(data, status){
- 					if(data.result.status)
-					{ 					
- 						fn_CreateTable(data.list);
- 						
- 						$('#addModal').modal('toggle');
- 					}
-					
-				}
-			});
-			
-			/*  if(validationFlag)
-			{
-				$(".needs-validation").attr('action','${pageContext.request.contextPath}/standard/addVend.do').submit();
-			} */
-		});
+		
 		
 	})();
 	

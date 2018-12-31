@@ -33,5 +33,20 @@ public class StandardServiceImpl implements StandardService{
 		standardDAO.deleteVend(map);
 	}
 
+	@Override
+	public void addMaterial(HashMap<String, Object> map) throws Exception {
+		standardDAO.insertMaterial(map);
+	}
+
+	@Override
+	public List<HashMap<String, String>> searchMaterialList() throws Exception {
+		return standardDAO.selectMaterialList();
+	}
+
+	@Override
+	public void deleteMaterial(HashMap<String, Object> map) throws Exception {
+		standardDAO.deleteMaterial(map);
+	}
+
 	
 }

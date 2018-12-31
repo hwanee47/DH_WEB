@@ -96,11 +96,13 @@ body {
 	width: 33.33%;
 	float: left;
 	position: relative;
+	letter-spacing: 1px;
 }
 #progressbar li:before {
 	content: counter(step);
 	counter-increment: step;
 	width: 20px;
+	height: 20px;
 	line-height: 20px;
 	display: block;
 	font-size: 10px;
@@ -115,7 +117,7 @@ body {
 	width: 100%;
 	height: 2px;
 	background: white;
-	/*position: absolute;*/
+	position: absolute;
 	left: -50%;
 	top: 9px;
 	z-index: -1; /*put it behind the numbers*/

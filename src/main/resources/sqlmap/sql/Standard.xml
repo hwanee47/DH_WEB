@@ -44,35 +44,36 @@
 
 
 	 <insert id="insertMaterial" parameterType="Map">
-    	/*App.insertMaterial*/
+    	/*Standard.insertMaterial*/
     	INSERT INTO MNG_MATERIAL_TB
     	(
-    		MODEL
+    		VEND_CD
+    		,MODEL
     		,ITEM_NUMBER
     		,ITEM_NAME
-    		,QUALITY_MATERIAL
+    		,QUALITY_MATERIAL 
     		,HEAT_TREATMENT_HARDNESS
     		,REMARKS
-    		,VEND_SEQ
     	)
     	VALUES
     	(
+    		#{vendCd}
     		,#{model}
-    		,,#{itemNumber}
-    		,,#{itemName}
-    		,,#{qualityMaterial}
-    		,,#{heatTreatmentHardness}
-    		,,#{remarks}
-    		,,#{vendSeq}
+    		,#{itemNumber}
+    		,#{itemName}
+    		,#{qualityMaterial}
+    		,#{heatTreatmentHardness}
+    		,#{remarks}
     	)
     	
     </insert>
     
     
     <select id="selectMaterialList" resultType="HashMap" parameterType="HashMap">
-		/*App.selectMaterialList*/
+		/*Standard.selectMaterialList*/
 		SELECT
-    		B.VEND_NAME
+			B.VEND_CD
+    		,B.VEND_NAME
     		,A.MODEL
     		,A.ITEM_NUMBER
     		,A.ITEM_NAME
@@ -83,7 +84,16 @@
     		MNG_MATERIAL_TB A
     		,MNG_VEND_TB B
     	WHERE
-    		A.VEND_SEQ = B.SEQ
-    	ORDER BY VEND_NUM
+    		A.VEND_CD = B.VEND_CD
+    	ORDER BY A.VEND_CD, A.MODEL
 	</select>
+	
+	
+	<delete id="deleteMaterial" parameterType="Map">
+		/*Standard.deleteMaterial*/
+		DELETE FROM MNG_MATERIAL_TB
+		WHERE
+			VEND_CD = #{vendCd}
+		AND MODEL = #{model}
+	</delete>
 </mapper>

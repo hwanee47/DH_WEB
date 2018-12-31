@@ -26,7 +26,7 @@
 			</div>
 			<div class="col-3 justify-content-end">
 				<a href="#" class="btn btn-default btn-sm btn-bold btn-upper float-right btn_search">조 회</a>
-				<a href="#" class="btn btn-default btn-sm btn-bold btn-upper float-right btn_add">추 가</a>
+				<a href="#" class="btn btn-default btn-sm btn-bold btn-upper float-right btn_add" data-toggle="modal" data-target="#addModal">추 가</a>
 			</div>
 		</div>
   		<hr class="my-1">
@@ -34,7 +34,7 @@
 		  <table border="0" class="table cust-table" style="width:100%"> 
 			<thead>
 				<tr style="">
-				  <th style="width:5%;">#</th>
+				  <th hidden>거래처코드</th>  
 				  <th style="width:15%;">거래처명</th>  
 				  <th style="width:10%;">기종</th> 
 				  <th style="width:15%;">품번</th> 
@@ -46,21 +46,6 @@
 				  
 				</tr>
 			  </thead>
-			  <tbody>
-			  	<c:forEach var="vendList" items="${vendList}">
-			  		<tr>
-	    				<th>${vendList.VEND_CD}</th>
-		                <td>${vendList.VEND_NAME}</td>
-		                <td>${vendList.VEND_REP}</td>
-		                <td>${vendList.VEND_NUM}</td>
-		                <td>${vendList.VEND_ADDR}</td>
-		                <td>${vendList.VEND_TEL}</td>
-		                <td>${vendList.VEND_FAX}</td>
-		                <td class="text-center"><button class="btn btn-outline-danger del-icon btn_delete"><i class="fas fa-trash-alt"></i></button></td>
-	            	</tr>
-			  	</c:forEach>
-			  
-			</tbody>
 		  </table>
 		</div>
 	</div>
@@ -98,96 +83,63 @@
 			                <th class="none">팩스번호</th>
 						</tr>
 					</thead>
-					<tbody>
-						<c:forEach var="vendList" items="${vendList}">
-					  		<tr>
-			    				<th>${vendList.VEND_CD}</th>
-				                <td>${vendList.VEND_NAME}</td>
-				                <td>${vendList.VEND_REP}</td>
-				                <td>${vendList.VEND_NUM}</td>
-				                <td>${vendList.VEND_ADDR}</td>
-				                <td>${vendList.VEND_TEL}</td>
-				                <td>${vendList.VEND_FAX}</td>
-			            	</tr>
-					  	</c:forEach>
-					</tbody>
 			    </table>
-				<input type="button" name="next" class="next action-button" value="Next" />
+			    <input type="text" class="form-control" name="vendCd" id="input_VendCd" hidden>
+				<input type="button" name="next" class="next action-button btn_next" value="다음" />
 			  </fieldset>
 			  <fieldset>
-			    <h2 class="fs-title">Social Profiles</h2>
-			    <h3 class="fs-subtitle">Your presence on the social network</h3>
-			    <input type="text" name="twitter" placeholder="Twitter" />
-			    <input type="text" name="facebook" placeholder="Facebook" />
-			    <input type="text" name="gplus" placeholder="Google Plus" />
+			  	<h3 class="fs-title">소재정보를 입력해주세요.</h3>
+			    <hr class="my-1 mb-2">
+				<div class="form-group">
+					<div style="line-height: 1.5; text-align: left;">기종</div>
+					<input type="text" class="form-control" name="model">
+				</div>
+				<div class="form-group">
+					<div style="line-height: 1.5; text-align: left;">품번</div>
+					<input type="text" class="form-control" name="itemNumber">
+				</div>
+				<div class="form-group">
+					<div style="line-height: 1.5; text-align: left;">품명</div>
+					<input type="text" class="form-control" name="itemName">
+				</div>
+				<div class="form-group">
+					<div style="line-height: 1.5; text-align: left;">재질</div>
+					<input type="text" class="form-control" name="qualityMaterial">
+				</div>
+				<div class="form-group">
+					<div style="line-height: 1.5; text-align: left;">열처리경도</div>
+					<input type="text" class="form-control" name="heatTreatmentHardness">
+				</div>
+				<div class="form-group">
+					<div style="line-height: 1.5; text-align: left;">비고</div>
+					<input type="text" class="form-control" name="remarks">
+				</div>
 			    <input type="button" name="previous" class="previous action-button" value="이전" />
-			    <input type="submit" name="submit" class="submit action-button" value="저장" />
+			    <input type="button" name="submit" class="submit action-button btn_save" value="저장" />
 			  </fieldset>
 			</form>
 	      
-	       <!--  <form class="needs-validation"  method="post" novalidate>
-			  <div class="form-row">
-			    <div class="col-md-11 mb-3">
-			      <label for="validationCustom01">거래처 명</label>
-			      <div class="row">
-				      <div class="col-3">
-				      	<input type="text" class="form-control" id="validationCustom01" name="vendName" disabled required>
-				      </div>
-				      <div class="col-8" style="margin-left:-5%;">
-				      	<input type="text" class="form-control" id="validationCustom01" name="vendName" disabled required>
-				      </div>
-				      <div class="col" style="margin-left:-5%;">
-				      	<button type="button" class="btn btn-outline-info form-control btn_popup_vend" data-toggle="modal" data-target="#vendModal"><i class="fas fa-search"></i></button>
-				      </div>
-			      </div>
-			      <div class="invalid-feedback">
-			      	거래처를 선택해주세요.
-			      </div>
-			    </div>
-			    <div class="col-md-8 mb-3">
-			      <label for="validationCustom02">기종</label>
-			      <input type="text" class="form-control" id="validationCustom02" name="vendRep" placeholder="대표자를 입력하세요." required>
-			      <div class="invalid-feedback">
-			      	대표자를 입력하세요.
-			      </div>
-			    </div>
-			    <div class="col-md-8 mb-3">
-			      <label for="validationCustom02">품번</label>
-			      <input type="text" class="form-control" id="validationCustom02" name="vendNum">
-			    </div>
-			    <div class="col-md-8 mb-3">
-			      <label for="validationCustom02">품명</label>
-			      <input type="text" class="form-control" id="validationCustom02" name="vendNum">
-			    </div>
-			    <div class="col-md-8 mb-3">
-			      <label for="validationCustom02">재질</label>
-			      <input type="text" class="form-control" id="validationCustom02" name="vendAddr">
-			    </div>
-			    <div class="col-md-8 mb-3">
-			      <label for="validationCustom02">열처리경도</label>
-			      <input type="text" class="form-control" id="validationCustom02" name="vendTel">
-			    </div>
-			    <div class="col-md-8 mb-3">
-			      <label for="validationCustom02">비고</label>
-			      <input type="text" class="form-control" id="validationCustom02" name="vendFax">
-			    </div>
-			 	<button class="btn btn-primary sr-only" type="submit">Submit form</button>
-			 </div>
-			</form> -->
 	      </div>
 	    </div>
 	  </div>
 	</div>	
-	
+
+<script src="${pageContext.request.contextPath}/resources/js/stepper.js"></script>	
 <script>
-	
-
-
 	$(document).ready(function() {
 		
-		
 		var table = $('#datatable').dataTable({
-				
+				ajax: "${pageContext.request.contextPath}/standard/searchVendList.do",
+				type: "GET",
+				columns: [
+					{"data": "VEND_CD"},
+					{"data": "VEND_NAME"},
+					{"data": "VEND_REP"},
+					{"data": "VEND_NUM"},
+					{"data": "VEND_ADDR"},
+					{"data": "VEND_TEL"},
+					{"data": "VEND_FAX"},
+				],
 				select: true,
 				paging: false,
 				info: false,
@@ -200,36 +152,60 @@
 		});
 		
 		
-	} );
-
-	(function() {
-		var validationFlag;
-		'use strict';
-		window.addEventListener('load', function() {
-		  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-		  var forms = document.getElementsByClassName('needs-validation');
-		  // Loop over them and prevent submission
-		  var validation = Array.prototype.filter.call(forms, function(form) {
-		    form.addEventListener('submit', function(event) {
-		      validationFlag = true;
-		      if (form.checkValidity() == false) {
-		    	validationFlag = form.checkValidity();
-		        event.preventDefault();
-		        event.stopPropagation();
-		       
-		      }
-		      form.classList.add('was-validated');
-		      
-		    }, false);
-		  });
-		  
-		}, false);
-	  
+		/*MODAL 다음버튼 클릭*/
+		$(".btn_next").click(function(){
+			var table = $('#datatable').DataTable();
+			var selectedRow = table.rows( { selected: true } ).count();
+			
+			if(selectedRow == 0)
+			{
+				alert("거래처를 선택해주세요");
+				return false;
+			}
+			
+			//input_VendCd에 선택한 거래처 코드 셋팅.
+			console.log(table.rows('.selected').data()[0].VEND_CD);
+			$("#input_VendCd").val(table.rows('.selected').data()[0].VEND_CD);
+			
+			stepperNext(this);
+		});
 		
-		$(".btn_add").click(function(){
+		
+		/*저장버튼클릭*/
+		$(".btn_save").click(function(){
+			
+			var sendData = $("#msform").serialize();
+			//console.log("보낼데이터 :: "+sendData);
+			$.ajax({
+				type : 'post',
+				url : '${pageContext.request.contextPath}/standard/addMaterial.do',
+				data : sendData,
+				dataType : 'json',
+				error : function(xhr, status){
+					console.log("ajax error");
+					
+				},
+				success : function(data, status){
+ 					if(data.result.status)
+					{ 					
+ 						console.log("success add data :: "+ data);
+ 						
+ 						fn_CreateTable(data.data);
+ 						
+ 						$('#addModal').modal('toggle');
+ 					}
+					
+				}
+			});
+		});
+		
+		
+		/*조회버튼 클릭*/
+		$(".btn_search").click(function(){
+			
 			$.ajax({
 				type : 'get',
-				url : '${pageContext.request.contextPath}/standard/searchVendList.do',
+				url : '${pageContext.request.contextPath}/standard/searchMaterialList.do',
 				dataType : 'json',
 				error : function(xhr, status){
 					console.log("ajax error");
@@ -238,52 +214,58 @@
 				success : function(data, status){
 					if(data.result.status)
 					{
-						fn_CreateTable(data.list);
+						//console.log(data);
+						fn_CreateTable(data.data);
 					}
 					
 				}
 			});
-			
-			//$(".form_search").attr('action','${pageContext.request.contextPath}/standard/searchVendList.do?program=standard/materialManage').submit();
-			
-			//$('#addModal').modal('show'); 
 		});
 		
 		
-		/*거래처조회버튼 클릭*/
-		$(".btn_popup_vend").click(function(){
-			alert("VEND POPUP!");
-		});
-		
-		
-		/*조회버튼 클릭*/
-		$(".btn_search").click(function(){
-			$(".form_search").attr('action','${pageContext.request.contextPath}/standard/searchVendList.do').submit();	
-		});
-		
-		
-		/*저장버튼 클릭*/
-// 		$(".btn_save").click(function(){
-// 			$(".needs-validation button").click();
+		function fn_CreateTable(data)
+		{
+		    // ajax로 추가했던 테이블 제거
+		    $(".new-tbody").remove();
 			
-// 			if(validationFlag)
-// 			{
-// 				$(".needs-validation").attr('action','${pageContext.request.contextPath}/standard/addVend.do').submit();
-// 			}
-// 		});
-		
-		
-		/*삭제버튼 클릭*/
-		$(".btn_delete").click(function(){
+			$newTbody = $("<tbody class='new-tbody'></tbody>");
 			
+			$(".cust-table").append($newTbody);
+			
+			for(var i=0; i<data.length; i++)
+			{
+				var rowData = data[i];
+				var str = '<tr>'
+					+'<td hidden>'+rowData.VEND_CD+'</td>'
+					+'<td>'+rowData.VEND_NAME+'</td>'
+					+'<td>'+rowData.MODEL+'</td>'
+					+'<td>'+rowData.ITEM_NUMBER+'</td>'
+					+'<td>'+rowData.ITEM_NAME+'</td>'
+					+'<td>'+rowData.QUALITY_MATERIAL+'</td>'
+					+'<td>'+rowData.HEAT_TREATMENT_HARDNESS+'</td>'
+					+'<td>'+rowData.REMARKS+'</td>'
+					+'<td class="text-center"><button class="btn btn-outline-danger del-icon btn_delete"><i class="fas fa-trash-alt"></i></button></td>"'
+					+'</tr>';
+					
+				$newTbody.append(str);
+			}
+			
+		}
+		
+		
+		/*동적으로 생성된 태그는 다음과 같이 이벤트를 주어야함.*/
+		$(document).on("click", ".btn_delete", function() {
 			if(confirm("삭제하시겠습니까?") == false) return;
 			
 			var trObj = $(this).parents("tr");
 			var vendCd = trObj.children().eq(0).text();
+			var model = trObj.children().eq(2).text();
+			
+			var deleteCondition = "vendCd="+vendCd+"&model="+model+""; 
 			
 			$.ajax({
 				type : 'post',
-				url : '${pageContext.request.contextPath}/standard/deleteVend.do?vendCd='+vendCd,
+				url : '${pageContext.request.contextPath}/standard/deleteMaterial.do?'+deleteCondition,
 				dataType : 'json',
 				error : function(xhr, status){
 					console.log("ajax error");
@@ -298,9 +280,12 @@
 					
 				}
 			});
-			
-		});
-	})();
+	    });
+	} );
+
+	
+	
 </script>
+
 </body>
 </html>

@@ -9,11 +9,6 @@
 	   <property name="dataSource" ref="dataSource"/>
 	</bean>
 	
-	<!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" 
-			p:driverClassName="${db.driver}" 
-			p:url="${db.url}" 
-			p:username="${db.username}"
-			p:password="${db.password}"/> -->
 	
 	<!-- connection info -->
 	<!-- <context:property-placeholder location="classpath:/property/db.properties"/>
@@ -22,14 +17,22 @@
 		<jdbc:script location= "classpath:/db/sampledb.sql"/>
 	</jdbc:embedded-database> -->
 	 
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="net.sf.log4jdbc.DriverSpy"/>
-        <property name="url" value="jdbc:log4jdbc:mysql://127.0.0.1:3306/dh" />
+<!-- 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
+<!--         <property name="driverClassName" value="net.sf.log4jdbc.DriverSpy"/> -->
+<!--         <property name="url" value="jdbc:log4jdbc:mysql://127.0.0.1:3306/dh" /> -->
+<!--         <property name="username" value="root"/> -->
+<!--         <property name="password" value="1234"/> -->
+        
+<!--     </bean> -->
+    
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+    	<property name="driverClassName" value="net.sf.log4jdbc.DriverSpy"/>
+        <property name="url" value="jdbc:log4jdbc:mysql://127.0.0.1:3306/dh"/>
         <property name="username" value="root"/>
         <property name="password" value="1234"/>
-    </bean>
+	</bean>
     
-  <!--   <bean id="dataSourceLog4j" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+    <bean id="dataSourceLog4j" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
         <constructor-arg ref="dataSource" />
         <property name="logFormatter">
             <bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
@@ -37,5 +40,5 @@
                 <property name="sqlPrefix" value="SQL         :  "/>
             </bean>
         </property>
-    </bean> -->
+    </bean>
 </beans>

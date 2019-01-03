@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="Standard">
-	<select id="selectVendList" resultType="HashMap" parameterType="HashMap">
+	<select id="selectVendList" resultType="Map" parameterType="Map">
 		/*Standard.selectVendList*/
 		SELECT
     		*
@@ -69,7 +69,7 @@
     </insert>
     
     
-    <select id="selectMaterialList" resultType="HashMap" parameterType="HashMap">
+    <select id="selectMaterialList" resultType="Map" parameterType="Map">
 		/*Standard.selectMaterialList*/
 		SELECT
 			B.VEND_CD
@@ -85,6 +85,10 @@
     		,MNG_VEND_TB B
     	WHERE
     		A.VEND_CD = B.VEND_CD
+    	<if test="vendCd != null">
+    	AND A.VEND_CD = #{vendCd} 
+    	</if>
+
     	ORDER BY A.VEND_CD, A.MODEL
 	</select>
 	

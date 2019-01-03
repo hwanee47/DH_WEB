@@ -38,8 +38,8 @@ public class StandardDAOImpl extends AbstractDAO implements StandardDAO{
 	}
 
 	@Override
-	public List<HashMap<String, String>> selectMaterialList() throws Exception {
-		return selectList("Standard.selectMaterialList");
+	public List<HashMap<String, String>> selectMaterialList(HashMap<String, Object> map) throws Exception {
+		return selectList("Standard.selectMaterialList", map);
 	}
 
 	@Override

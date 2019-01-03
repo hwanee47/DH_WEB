@@ -39,8 +39,8 @@ public class StandardServiceImpl implements StandardService{
 	}
 
 	@Override
-	public List<HashMap<String, String>> searchMaterialList() throws Exception {
-		return standardDAO.selectMaterialList();
+	public List<HashMap<String, String>> searchMaterialList(HashMap<String, Object> map) throws Exception {
+		return standardDAO.selectMaterialList(map);
 	}
 
 	@Override

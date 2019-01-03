@@ -35,7 +35,7 @@
 	          <a href="#"><i class="fas fa-list-alt"></i> 재고관리 <span class="arrow"></span></a>
 	        </li>
 	        <ul class="sub-menu collapse" id="products2">
-	            <li><a href="#">출고명세서 출력</a></li>
+	            <li><a href="#" onclick="fn_main_headPageMove('inventory/forwardingStatement')">출고명세서 출력</a></li>
 	            <li><a href="#">입고관리</a></li>
 	            <li><a href="#">출고관리</a></li>
 	        </ul>

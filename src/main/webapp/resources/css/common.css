@@ -13,9 +13,9 @@ table{
     box-sizing: border-box; 
 }
 
-.content-page{
-	width:80%;
-}
+/* .content-page{ */
+/* 	width:80%; */
+/* } */
 
 
 .jumbotron{
@@ -61,6 +61,7 @@ table{
 	    overflow: hidden;
 	    padding: 5px 50px;
 	    min-height: 80vh;
+	    width: 80%;
 	}
 }
 

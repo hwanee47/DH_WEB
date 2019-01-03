@@ -76,9 +76,9 @@ public class StandardController {
 	
 	
 	@RequestMapping(value = "/searchMaterialList.do")
-	public ModelAndView searchMaterialList(HttpServletRequest request, ModelMap model) throws Exception{
+	public ModelAndView searchMaterialList(HttpServletRequest request, @RequestParam HashMap<String, Object> map, ModelMap model) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		List<HashMap<String,String>> list = standardService.searchMaterialList();
+		List<HashMap<String,String>> list = standardService.searchMaterialList(map);
 		
 		mv.setViewName("jsonView");
 		mv.addObject("result", Result.ok());

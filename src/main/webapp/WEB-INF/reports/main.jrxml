@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="main" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="db07e05d-11c9-4e57-935e-1d1a597cc27d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\junsan4\\git\\DH_WEB\\src\\main\\webapp\\WEB-INF\\reports\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="reportUrl" class="java.lang.String"/>
+	<field name="list" class="java.util.List"/>
+	<field name="test" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="50">
+			<staticText>
+				<reportElement uuid="fcc362c8-b57e-4836-a53f-b619f972507a" x="337" y="17" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="HYGoThic-Medium" pdfEncoding="UniKS-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[zzzz]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="07ce57e7-36ea-4f57-b0e8-3f5c005acabe" x="110" y="22" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="HYGoThic-Medium" pdfEncoding="UniKS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{test}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="103" splitType="Stretch">
+			<subreport>
+				<reportElement uuid="cd451612-c0f2-45a7-96ca-b895965d6e65" x="0" y="0" width="555" height="100"/>
+				<subreportParameter name="test">
+					<subreportParameterExpression><![CDATA[$F{test}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{list})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{reportUrl} + "sub1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="111">
+			<subreport>
+				<reportElement uuid="1c8bfc33-77c4-42a0-8ddc-664cb0bf6ab9" x="0" y="11" width="555" height="100"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{list})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{reportUrl} + "sub2.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement uuid="ee59de04-cb40-4ddc-bf2d-7541e57b5822" x="2" y="4" width="553" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

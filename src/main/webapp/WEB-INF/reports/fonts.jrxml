@@ -1181,13 +1181,6 @@
 			<rectangle>
 				<reportElement uuid="edd2cef1-9269-406b-83ff-5dcbca81bb8a" x="385" y="166" width="108" height="18"/>
 			</rectangle>
-			<textField>
-				<reportElement uuid="e489d933-9de9-4b74-a86a-362709723ded" x="32" y="9" width="126" height="17"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font pdfFontName="HYGoThic-Medium" pdfEncoding="UniKS-UCS2-H" isPdfEmbedded="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{TEXT}]]></textFieldExpression>
-			</textField>
 		</band>
 	</detail>
 	<columnFooter>

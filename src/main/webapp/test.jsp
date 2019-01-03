@@ -7,6 +7,7 @@
 
 <%@ page import="java.io.*" %>
 <%@ page import="java.util.*" %>
+<%@ page import="com.daehan.common.model.Report" %>
 
 <%
 	ServletOutputStream servletOutputStream = response.getOutputStream();  
@@ -22,7 +23,7 @@
          String reportLocation = context.getRealPath("WEB-INF");
           
          // get report
-         fis = new FileInputStream(reportLocation + "/reports/report2.jasper");
+         fis = new FileInputStream(reportLocation + "/reports/main.jasper");
          bufferedInputStream = new BufferedInputStream(fis);
           
          // fill parameter list
@@ -32,24 +33,31 @@
          {
         	 HashMap<String,String> param = new HashMap<String, String>();
         	 
-        	 param.put("CNT", String.valueOf(i));
-        	 param.put("TEXT", "GOOD!!");
+        	 param.put("cnt", String.valueOf(i));
+        	 param.put("text", "한글한글!!#$");
         
         	 list.add(param);
          }
          
+         Report report = new Report();
+         report.setTest("MAIN!!!!2");
+         report.setList(list);
          
          
+         List<Report> resultlist = new ArrayList<Report>();
          
-         // fill parameters
-         Map<String, Object> map = new HashMap<String, Object>();
-         map.put("TEST", "㈜  코 텍");
-                          
+         resultlist.add(report);
+         
+         Map<String, Object> parameters = new HashMap<String, Object>();
+		 parameters.put("reportUrl", reportLocation+"\\reports\\");
+
+		 System.out.println(reportLocation+"\\reports\\subReport1.jasper");
+		 
          // export to pdf           
          JasperReport jasperReport = (JasperReport) JRLoader.loadObject(bufferedInputStream);
         /*  JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,
            map, new JREmptyDataSource()); */
-         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map, new JRBeanCollectionDataSource(list));  
+         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, new JRBeanCollectionDataSource(resultlist));  
          JasperExportManager.exportReportToPdfStream(jasperPrint, baos);
  
          response.setContentLength(baos.size());

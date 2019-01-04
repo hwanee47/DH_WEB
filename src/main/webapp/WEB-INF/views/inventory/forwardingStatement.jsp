@@ -8,10 +8,19 @@
 <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
 <link href="https://cdn.datatables.net/select/1.2.7/css/select.dataTables.min.css" rel="stylesheet">
 <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/select/1.2.7/css/select.bootstrap4.min.css" rel="stylesheet">
 
 <script src='https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'></script>	
 <script src='https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js'></script>
 <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
+<style type="text/css">
+	@media (min-width: 992px){
+		#div_selectVend{
+			width: 40%;
+		}
+	}
+</style>
 
 </head> 
 <body>
@@ -24,42 +33,99 @@
 	<div class="jumbotron container-main">
 		<form class="mb-3" id="msform">
 			  <ul class="row justify-content-center" id="progressbar">
-			    <li class="active">거래처 선택</li>
-			    <li>소재 선택</li>
+			    <li class="active">소재 선택</li>
 			    <li>출력 정보 입력</li>
+			    <li>출력 미리보기</li>
 			  </ul>
-			  <fieldset class="fieldset_vend">
+			  <fieldset class="fieldset1">
 			    <h3 class="fs-title">어떤 거래처의 소재인가요?</h3>
 			    <hr class="my-1 mb-2">
-		 		<table id="datatable" class="display responsive nowrap" cellspacing="0" width="100%">
-			    	<thead>
-				    	<tr>
-						    <th class="all">거래처코드</th>
-			                <th class="all">거래처 명</th>
-			                <th class="none">대표자</th>
-			                <th class="none">사업자 번호</th>
-			                <th class="none">주소</th>
-			                <th class="none">전화번호</th>
-			                <th class="none">팩스번호</th>
-						</tr>
-					</thead>
-			    </table>
+			    <div class="row">
+				    <div class="col-sm-6">
+			 		<table id="datatable_vend" class="display responsive nowrap" cellspacing="0" width="100%">
+				    	<thead>
+					    	<tr>
+							    <th class="all">거래처코드</th>
+				                <th class="all">거래처 명</th>
+				                <th class="none">대표자</th>
+				                <th class="none">사업자 번호</th>
+				                <th class="none">주소</th>
+				                <th class="none">전화번호</th>
+				                <th class="none">팩스번호</th>
+							</tr>
+						</thead>
+				    </table>
+				    </div>
+				    <div class="col-sm-6">
+				    <table id="datatable_material" class="display responsive nowrap" cellspacing="0" width="100%">
+				    	<thead>
+					    	<tr>
+							    <th class="all">순번</th>
+							    <th class="all">기종</th>
+				                <th class="all">품명</th>
+				                <th>품번</th>
+							</tr>
+						</thead>
+				    </table>
+				    </div>
+			    </div>
 			    <input type="text" class="form-control" name="vendCd" id="input_VendCd" hidden>
 				<input type="button" name="next" class="next action-button btn_next" value="다음" />
 			  </fieldset>
-			  <fieldset class="fieldset_material">
-			  	<h3 class="fs-title">출력할 소재를 선택해주세요.</h3>
-			    <hr class="my-1 mb-2">
-				
-			    <input type="button" name="previous" class="previous action-button" value="이전" />
-			    <input type="button" name="next" class="submit action-button btn_next" value="다음" />
-			  </fieldset>
-			  <fieldset class="fieldset_inputPrintInfo">
+			  <fieldset class="fieldset2">
 			  	<h3 class="fs-title">나머지 정보를 입력해주세요.</h3>
 			    <hr class="my-1 mb-2">
-				
+			    <div class="mb-5" id="div_selectVend">
+			    	<div style="color: #5867dd; font-weight: bold; text-align: left;">1. 출고 거래처 선택</div>
+			    	<div class=>
+				    	<table id="datatable_vend2" class="display responsive nowrap" cellspacing="0" width="100%">
+					    	<thead>
+						    	<tr>
+								    <th class="all">거래처코드</th>
+					                <th class="all">거래처 명</th>
+					                <th class="none">대표자</th>
+					                <th class="none">사업자 번호</th>
+					                <th class="none">주소</th>
+					                <th class="none">전화번호</th>
+					                <th class="none">팩스번호</th>
+								</tr>
+							</thead>
+					    </table>
+				    </div>
+			    </div>
+			    
+				<div class="table-responsive mb-5">
+					<div style="color: #5867dd; font-weight: bold; text-align: left;">2. 출고 리스트 정보</div>
+					<table id="datatable_inputInfo" class="display responsive nowrap" cellspacing="0" width="100%">
+				    	<thead>
+					    	<tr>
+							    <th class="all">순번</th>
+							    <th class="all">기종</th>
+				                <th class="all">품명</th>
+				                <th class="all">품번</th>
+				                <th>수량</th>
+				                <th>납기일</th>
+							</tr>
+						</thead>
+				    </table>
+			    </div>
+			    
+			    <div class="form-group">
+					<div style="color: #5867dd; font-weight: bold; text-align: left;">3. 비고</div>
+					<div class="form-group green-border-focus">
+					  <textarea class="form-control" rows="3" placeholder="내용을 입력하세요"></textarea>
+					</div>
+				</div>
 			    <input type="button" name="previous" class="previous action-button" value="이전" />
-			    <input type="button" name="submit" class="submit action-button btn_print" value="출력" />
+			    <input type="button" name="next" class="submit action-button btn_next" value="출력미리보기" />
+			  </fieldset>
+			  <fieldset class="fieldset3">
+			  	<h3 class="fs-title">최종적으로 내용을 확인해주세요.</h3>
+			    <hr class="my-1 mb-2">
+				<div class="embed-responsive embed-responsive-16by9">
+				  <iframe class="embed-responsive-item" src="${pageContext.request.contextPath}/com/pageLink.do?link=standard/vendManage" allowfullscreen></iframe>
+				</div>
+			    <input type="button" name="previous" class="previous action-button" value="이전" />
 			  </fieldset>
 			</form>
 	</div>
@@ -69,9 +135,15 @@
 <script>
 	$(document).ready(function() {
 		
-		var table = $('#datatable').dataTable({
+		/*거래처 datatable 초기 셋팅*/
+		datatableVend = $('#datatable_vend').DataTable({
 				ajax: "${pageContext.request.contextPath}/standard/searchVendList.do",
 				type: "GET",
+				columnDefs: [{
+					targets: 0,
+					className: "text-center",
+					width: "10%"
+				}],
 				columns: [
 					{"data": "VEND_CD"},
 					{"data": "VEND_NAME"},
@@ -86,35 +158,163 @@
 				info: false,
 				language: {
 					search: "",
-					searchPlaceholder: "거래처 입력"
+					searchPlaceholder: "Search"
 				},
 				responsive: true
 				
 		});
 		
+		datatableVend2 = $('#datatable_vend2').DataTable({
+				ajax: "${pageContext.request.contextPath}/standard/searchVendList.do",
+				type: "GET",
+				columnDefs: [{
+					targets: 0,
+					className: "text-center",
+					width: "10%"
+				}],
+				columns: [
+					{"data": "VEND_CD"},
+					{"data": "VEND_NAME"},
+					{"data": "VEND_REP"},
+					{"data": "VEND_NUM"},
+					{"data": "VEND_ADDR"},
+					{"data": "VEND_TEL"},
+					{"data": "VEND_FAX"},
+				],
+				select: true,
+				paging: false,
+				info: false,
+				language: {
+					search: "",
+					searchPlaceholder: "Search"
+				},
+				autoWidth: false,
+				responsive: true
+				
+		});
+		
+		/*소재 datatable 초기 셋팅*/
+		datatableMaterial = $('#datatable_material').DataTable({
+			columnDefs: [{
+				searchable: false,
+				orderable: false,
+				targets: 0,
+				className: "text-center",
+				width: "10%"
+			}],
+			order: [[ 1, 'asc']],
+			columns: [
+				{"data": null},
+				{"data": "MODEL"},
+				{"data": "ITEM_NAME"},
+				{"data": "ITEM_NUMBER"},
+			],
+			select: {
+				style: "multi"
+			},
+			paging: false,
+			info: false,
+			language: {
+				search: "",
+				searchPlaceholder: "Search"
+			},
+			responsive: true,
+			fnRowCallback : function(nRow, aData, iDisplayIndex){      
+				var index = iDisplayIndex +1;
+				$('td:eq(0)',nRow).html(index);
+				return nRow;
+      		}
+			
+		});
+		
+		
+		/*나머지정보입력 datatable 초기 셋팅*/
+		datatableInputInfo = $('#datatable_inputInfo').DataTable({
+			columnDefs: [
+				{
+					searchable: false,
+					orderable: false,
+					targets: 0,
+					className: "text-center",
+					width: "5%"
+				},
+				{
+					targets: 4,
+					width: "10%"
+				}
+			],
+			order: [[ 1, 'asc']],
+			columns: [
+				{"data": null},
+				{"data": "MODEL"},
+				{"data": "ITEM_NAME"},
+				{"data": "ITEM_NUMBER"},
+				{
+					"data": null,
+					render: function (data, type, row) {
+                        return '<input type="text" class="form-control text-right" placeholder="수량입력">';
+                    }
+				},
+				{
+					"data": null,
+					render: function (data, type, row) {
+                        return '<input type="text" class="form-control" placeholder="납기일을 입력하세요">';
+                    }
+				}
+			],
+			searching: false,
+			paging: false,
+			info: false,
+			autoWidth: false,
+			responsive: true,
+			fnRowCallback : function(nRow, aData, iDisplayIndex){      
+				var index = iDisplayIndex +1;
+				$('td:eq(0)',nRow).html(index);
+				return nRow;
+      		}
+			
+		});
+		
+		
+		/*거래처 테이블 row 클릭*/
+		$(document).on("click", "#datatable_vend tbody tr", function() {
+			
+			if($(this).hasClass( "selected" )) {
+				datatableMaterial.clear().draw();
+				//input_VendCd에 선택한 거래처 코드 셋팅.
+				$("#input_VendCd").val(datatableVend.rows('.selected').data()[0].VEND_CD);
+				
+				fn_SearchMaterialList();
+			}else{
+				datatableMaterial.clear().draw();
+			}
+		});
 		
 		/*거래처 선택 창에서 다음버튼 클릭*/
-		$(".fieldset_vend .btn_next").click(function(){
-			var table = $('#datatable').DataTable();
-			var selectedRow = table.rows( { selected: true } ).count();
+		$(".fieldset1 .btn_next").click(function(){
+			
+			var selectedRow = datatableMaterial.rows( { selected: true } ).count();
 			
 			if(selectedRow == 0)
 			{
-				alert("거래처를 선택해주세요");
+				alert("출력할 소재를 선택해주세요");
 				return false;
 			}
 			
-			//input_VendCd에 선택한 거래처 코드 셋팅.
-			$("#input_VendCd").val(table.rows('.selected').data()[0].VEND_CD);
 			
-			//선택한 거래처의 소재 조회
-			fn_SearchMaterialList();
-			
-			
+			//datatable_inputInfo에 선택한 소재 추가
+			var selectedData = datatableMaterial.rows({ selected: true }).data();
+			datatableInputInfo.clear().draw();
+			datatableInputInfo.rows.add(selectedData).draw();
 			
 			stepperNext(this);
 		});
 
+		
+		$(".fieldset2 .btn_next").click(function(){
+			stepperNext(this);
+		});
+		
 		
 		/*
 			fn_SearchMaterialList - 선택된 거래처에 해당되는 소재를 조회하는 함수
@@ -124,25 +324,21 @@
 		function fn_SearchMaterialList(){
 			//검색조건
 			var sendData = $(".form_searchCondition").serialize();	
-				
+			
+			
 			$.ajax({
-				type : 'get',
-				url : '${pageContext.request.contextPath}/standard/searchMaterialList.do',
-				data : sendData,
-				dataType : 'json',
-				error : function(xhr, status){
-					console.log("ajax error");
-					
-				},
-				success : function(data, status){
-					if(data.result.status)
-					{
-						//console.log(data);
-						fn_CreateTable(data.data);
-					}
-					
-				}
+				url: "${pageContext.request.contextPath}/standard/searchMaterialList.do",
+				type: "GET",
+				contentType: "application/json",
+				data: sendData
+			}).done(function(result){
+				console.log(result);
+				datatableMaterial.rows.add(result.data).draw();
+			}).fail(function(jqXHR, textStatus, errorThrown){
+				
 			});
+			
+			
 		}
 		
 		

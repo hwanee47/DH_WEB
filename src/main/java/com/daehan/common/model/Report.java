@@ -4,21 +4,28 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Report {
-	String test;
+	String vendName;
+	String remark;
 	List<HashMap<String,String>> list;
 	
 	
-	public String getTest() {
-		return test;
+	public String getVendName() {
+		return vendName;
 	}
-	public void setTest(String test) {
-		this.test = test;
+	public void setVendName(String vendName) {
+		this.vendName = vendName;
 	}
 	public List<HashMap<String, String>> getList() {
 		return list;
 	}
 	public void setList(List<HashMap<String, String>> list) {
 		this.list = list;
+	}
+	public String getRemark() {
+		return remark;
+	}
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
 	
 	

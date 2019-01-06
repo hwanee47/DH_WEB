@@ -53,4 +53,16 @@
 
     <beans:bean id="loggerAspect" class="com.daehan.common.logger.LoggerAspect" />
 
+<!-- 	<beans:bean class="org.springframework.web.servlet.view.jasperreports.JasperReportsViewResolver"> -->
+<!-- 		<beans:property name="order" value="1"/> -->
+<!-- 		<beans:property name="viewClass" value="org.springframework.web.servlet.view.jasperreports.JasperReportsMultiFormatView"/> -->
+<!-- 		<beans:property name="prefix" value="/WEB-INF/data/" /> -->
+<!-- 		<beans:property name="suffix" value=".jasper" /> -->
+<!-- 		<beans:property name="viewNames" value="reports/*" /> -->
+<!-- 	</beans:bean> -->
+	<beans:bean id="JasperReportTest" class="org.springframework.web.servlet.view.jasperreports.JasperReportsMultiFormatView">
+		<beans:property name="reportDataKey" value="jrDataSource"/>
+		<beans:property name="url" value="/WEB-INF/reports/main.jasper"/>
+	</beans:bean>
+
 </beans:beans>

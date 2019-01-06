@@ -3,22 +3,22 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<field name="cnt" class="java.lang.String"/>
-	<field name="text" class="java.lang.String"/>
+	<field name="SEQ" class="java.lang.String"/>
+	<field name="MODEL" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="51" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="e11a122d-5b74-437e-8173-83c33aafcbc2" x="1" y="27" width="555" height="18"/>
+				<reportElement x="1" y="27" width="555" height="18" uuid="e11a122d-5b74-437e-8173-83c33aafcbc2"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="맑은 고딕" size="12" isBold="false" pdfFontName="HYGoThic-Medium" pdfEncoding="UniKS-UCS2-H" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[(공급받는자 보관용)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="37fd9c8a-4f0b-4620-9e92-02bcb392c90e" x="1" y="1" width="555" height="28"/>
+				<reportElement x="1" y="1" width="555" height="28" uuid="37fd9c8a-4f0b-4620-9e92-02bcb392c90e"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="맑은 고딕" size="20" isBold="false" pdfFontName="HYGoThic-Medium" pdfEncoding="UniKS-UCS2-H" isPdfEmbedded="true"/>
 				</textElement>
@@ -29,7 +29,7 @@
 	<pageHeader>
 		<band height="82" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="6bdb954f-082f-490d-b693-2d1f5794e70b" x="349" y="1" width="205" height="23"/>
+				<reportElement x="349" y="1" width="205" height="23" uuid="6bdb954f-082f-490d-b693-2d1f5794e70b"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -43,7 +43,7 @@
 				<text><![CDATA[613-01-83236]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="340736cf-0d79-45f3-8c1c-3d54398585bb" x="283" y="40" width="66" height="22"/>
+				<reportElement x="283" y="40" width="66" height="22" uuid="340736cf-0d79-45f3-8c1c-3d54398585bb"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -58,7 +58,7 @@
 소 재 지]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="c6f0ccdb-5a75-4aff-b1d2-79aebf1cb7aa" x="469" y="62" width="85" height="17"/>
+				<reportElement x="469" y="62" width="85" height="17" uuid="c6f0ccdb-5a75-4aff-b1d2-79aebf1cb7aa"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -72,7 +72,7 @@
 				<text><![CDATA[농기계부품외]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="f6303a5b-39e0-4230-b833-32315fe0c002" x="260" y="1" width="23" height="78"/>
+				<reportElement x="260" y="1" width="23" height="78" uuid="f6303a5b-39e0-4230-b833-32315fe0c002"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -88,7 +88,7 @@
 자]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="6efe6568-4982-4dae-a4b9-a7511a5af395" x="349" y="62" width="89" height="17"/>
+				<reportElement x="349" y="62" width="89" height="17" uuid="6efe6568-4982-4dae-a4b9-a7511a5af395"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -102,7 +102,7 @@
 				<text><![CDATA[제조업]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="7c5602f5-bb28-4f66-964f-23618f7beac4" x="283" y="62" width="66" height="17"/>
+				<reportElement x="283" y="62" width="66" height="17" uuid="7c5602f5-bb28-4f66-964f-23618f7beac4"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -116,7 +116,7 @@
 				<text><![CDATA[업     태]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="45c0d543-3134-420e-b62a-76c7ea57bcab" x="462" y="24" width="31" height="16"/>
+				<reportElement x="462" y="24" width="31" height="16" uuid="45c0d543-3134-420e-b62a-76c7ea57bcab"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -130,7 +130,7 @@
 				<text><![CDATA[성명]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="8ed3ef1c-d2c3-4c0a-b454-059f51d72f50" x="283" y="1" width="66" height="23"/>
+				<reportElement x="283" y="1" width="66" height="23" uuid="8ed3ef1c-d2c3-4c0a-b454-059f51d72f50"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -145,7 +145,7 @@
 등록번호]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="bba336c8-edab-4a54-b94f-1fa7d88dba14" x="349" y="40" width="205" height="22"/>
+				<reportElement x="349" y="40" width="205" height="22" uuid="bba336c8-edab-4a54-b94f-1fa7d88dba14"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -159,7 +159,7 @@
 				<text><![CDATA[경남 진주시 도동로 136번길 14 (상대동)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="badec9b3-d904-4ed7-9574-f11d62e553dd" x="438" y="62" width="31" height="17"/>
+				<reportElement x="438" y="62" width="31" height="17" uuid="badec9b3-d904-4ed7-9574-f11d62e553dd"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -173,7 +173,7 @@
 				<text><![CDATA[종목]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="af71cd19-e96d-4ffb-94a8-d868b581da08" x="283" y="24" width="66" height="16"/>
+				<reportElement x="283" y="24" width="66" height="16" uuid="af71cd19-e96d-4ffb-94a8-d868b581da08"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -187,7 +187,7 @@
 				<text><![CDATA[상     호]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="1ac4bb8b-7554-4080-9ef4-fe1e485efaa0" x="493" y="24" width="61" height="16"/>
+				<reportElement x="493" y="24" width="61" height="16" uuid="1ac4bb8b-7554-4080-9ef4-fe1e485efaa0"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -201,7 +201,7 @@
 				<text><![CDATA[김현찬]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="f24b05cc-91d6-4ecd-bf79-9c1c5ba44490" x="349" y="24" width="113" height="16"/>
+				<reportElement x="349" y="24" width="113" height="16" uuid="f24b05cc-91d6-4ecd-bf79-9c1c5ba44490"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -219,32 +219,30 @@
 	<columnHeader>
 		<band height="20" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="a1f96b4b-65e1-4d56-ab37-1a2d529f080c" x="0" y="0" width="277" height="20"/>
-				<textElement/>
-				<text><![CDATA[text]]></text>
+				<reportElement x="0" y="0" width="277" height="20" uuid="6829b64a-bdfc-4458-9171-07b1d2f34dc0"/>
+				<text><![CDATA[SEQ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="e1f85d75-a451-4a0a-acba-7858a813bec3" x="277" y="0" width="277" height="20"/>
-				<textElement/>
-				<text><![CDATA[cnt]]></text>
+				<reportElement x="277" y="0" width="277" height="20" uuid="3df2aea4-5a2e-40bf-aacc-cd4599b94e71"/>
+				<text><![CDATA[MODEL]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="20" splitType="Stretch">
 			<textField>
-				<reportElement uuid="0a68de0e-e235-4f52-bee5-4a570ca99189" x="0" y="0" width="277" height="20"/>
+				<reportElement x="0" y="0" width="277" height="20" uuid="53697d23-188e-4361-8c9f-1fad64172f1e"/>
 				<textElement>
 					<font pdfFontName="HYGoThic-Medium" pdfEncoding="UniKS-UCS2-H"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{text}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{SEQ}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="1fb6c9b8-edec-41c9-ae9a-1dceecc23eb6" x="277" y="0" width="277" height="20"/>
+				<reportElement x="277" y="0" width="277" height="20" uuid="5b0cbf23-12b2-423c-b4e5-085ab6e16696"/>
 				<textElement>
 					<font pdfFontName="HYGoThic-Medium" pdfEncoding="UniKS-UCS2-H"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{cnt}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{MODEL}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

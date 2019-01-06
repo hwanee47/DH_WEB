@@ -31,7 +31,7 @@
 		<h4 class="page-title">재고관리 > 출고명세서 출력</h4>
 	</div>
 	<div class="jumbotron container-main">
-		<form class="mb-3" id="msform">
+		<form class="mb-3" id="msform" method="POST" target="report">
 			  <ul class="row justify-content-center" id="progressbar">
 			    <li class="active">소재 선택</li>
 			    <li>출력 정보 입력</li>
@@ -113,7 +113,7 @@
 			    <div class="form-group">
 					<div style="color: #5867dd; font-weight: bold; text-align: left;">3. 비고</div>
 					<div class="form-group green-border-focus">
-					  <textarea class="form-control" rows="3" placeholder="내용을 입력하세요"></textarea>
+					  <textarea class="form-control" id="textarea_remark" rows="3" placeholder="내용을 입력하세요"></textarea>
 					</div>
 				</div>
 			    <input type="button" name="previous" class="previous action-button" value="이전" />
@@ -123,7 +123,7 @@
 			  	<h3 class="fs-title">최종적으로 내용을 확인해주세요.</h3>
 			    <hr class="my-1 mb-2">
 				<div class="embed-responsive embed-responsive-16by9">
-				  <iframe class="embed-responsive-item" src="${pageContext.request.contextPath}/com/pageLink.do?link=standard/vendManage" allowfullscreen></iframe>
+				  <iframe class="embed-responsive-item" id="iframe_report" name="report" allowfullscreen></iframe>
 				</div>
 			    <input type="button" name="previous" class="previous action-button" value="이전" />
 			  </fieldset>
@@ -245,17 +245,31 @@
 			],
 			order: [[ 1, 'asc']],
 			columns: [
-				{"data": null},
-				{"data": "MODEL"},
-				{"data": "ITEM_NAME"},
-				{"data": "ITEM_NUMBER"},
 				{
+					"name": "SEQ",
+					"data": null
+				},
+				{
+					"name": "MODEL",
+					"data": "MODEL"
+				},
+				{
+					"name": "ITEM_NAME",
+					"data": "ITEM_NAME"
+				},
+				{
+					"name": "ITEM_NUMBER",
+					"data": "ITEM_NUMBER"
+				},
+				{
+					"name": "QTY",
 					"data": null,
 					render: function (data, type, row) {
                         return '<input type="text" class="form-control text-right" placeholder="수량입력">';
                     }
 				},
 				{
+					"name": "DT",
 					"data": null,
 					render: function (data, type, row) {
                         return '<input type="text" class="form-control" placeholder="납기일을 입력하세요">';
@@ -313,6 +327,48 @@
 		
 		$(".fieldset2 .btn_next").click(function(){
 			stepperNext(this);
+			
+			var sendData = $("#msform").serialize();
+			
+			var heads = [];
+			var columns = datatableInputInfo.settings().init().columns;
+			datatableInputInfo.columns().every(function (index) {
+				heads.push(columns[index].name);
+			});
+			
+			var rows = [];
+			$("#datatable_inputInfo tbody tr").each(function () {
+				cur = {};
+				$(this).find("td").each(function(i, v) {
+				 cur[heads[i]] = $(this).text().trim();
+				 
+				 $(this).find("input").each(function(){
+					 cur[heads[i]] = $(this).val();
+				 })
+				});
+				rows.push(cur);
+				cur = {};
+			});
+			
+			var selectedRow = datatableVend2.rows('.selected');
+			
+			//iframe src setting
+			$.ajax({
+		        type: "POST", 
+		        data : {
+		        	"VEND_NAME" : datatableVend2.cell(selectedRow,1).data(),
+		        	"LIST" : JSON.stringify(rows),
+		        	"REMARK": $("#textarea_remark").val()
+		        },
+				dataType : 'json',
+		        url : "${pageContext.request.contextPath}/inventory/setReportData.do",
+		        success : function (data) {
+		        	if(data.result.status)
+					{ 	 
+		        		$("#iframe_report").attr("src","${pageContext.request.contextPath}/inventory/report.do");
+					}
+		        }
+		    });
 		});
 		
 		

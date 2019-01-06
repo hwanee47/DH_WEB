@@ -50,7 +50,6 @@
          
          Map<String, Object> parameters = new HashMap<String, Object>();
 		 parameters.put("reportUrl", reportLocation+"\\reports\\");
-
 		 System.out.println(reportLocation+"\\reports\\subReport1.jasper");
 		 
          // export to pdf           

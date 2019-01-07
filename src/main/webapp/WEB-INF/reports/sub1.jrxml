@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sub1" pageWidth="610" pageHeight="842" columnWidth="590" leftMargin="0" rightMargin="20" topMargin="7" bottomMargin="20" uuid="281ed5eb-a07f-4ba7-846b-03e96ac1d31f">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sub1" pageWidth="595" pageHeight="842" columnWidth="561" leftMargin="14" rightMargin="20" topMargin="7" bottomMargin="20" uuid="281ed5eb-a07f-4ba7-846b-03e96ac1d31f">
 	<property name="ireport.zoom" value="1.4641000000000008"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -17,14 +17,14 @@
 	<title>
 		<band height="51" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="f7ad6f9d-cd77-4c9b-8516-cac9dffd8014" x="1" y="1" width="555" height="28"/>
+				<reportElement x="1" y="1" width="555" height="28" uuid="f7ad6f9d-cd77-4c9b-8516-cac9dffd8014"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="맑은 고딕" size="20" isBold="false" pdfFontName="HYGoThic-Medium" pdfEncoding="UniKS-UCS2-H" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[외주 출고 명세서]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="c2027e12-f27a-4f07-8f37-07c5902c34a8" x="1" y="27" width="555" height="18"/>
+				<reportElement x="1" y="27" width="555" height="18" uuid="c2027e12-f27a-4f07-8f37-07c5902c34a8"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="맑은 고딕" size="12" isBold="false" pdfFontName="HYGoThic-Medium" pdfEncoding="UniKS-UCS2-H" isPdfEmbedded="true"/>
 				</textElement>
@@ -35,7 +35,7 @@
 	<pageHeader>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="624dbebe-de8f-42a1-aefe-8a9d04501cfd" x="430" y="62" width="31" height="17"/>
+				<reportElement x="430" y="62" width="31" height="17" uuid="624dbebe-de8f-42a1-aefe-8a9d04501cfd"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -49,7 +49,7 @@
 				<text><![CDATA[종목]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="40d7f869-0cd9-45cc-ab98-d1fef38e99ee" x="341" y="40" width="205" height="22"/>
+				<reportElement x="341" y="40" width="205" height="22" uuid="40d7f869-0cd9-45cc-ab98-d1fef38e99ee"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -63,7 +63,7 @@
 				<text><![CDATA[경남 진주시 도동로 136번길 14 (상대동)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="8d37870d-fd37-4445-b134-44b93a63ed50" x="341" y="1" width="205" height="23"/>
+				<reportElement x="341" y="1" width="205" height="23" uuid="8d37870d-fd37-4445-b134-44b93a63ed50"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -77,7 +77,7 @@
 				<text><![CDATA[613-01-83236]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="ed1b0994-6f49-4953-a13c-53acbe41908d" x="461" y="62" width="85" height="17"/>
+				<reportElement x="461" y="62" width="85" height="17" uuid="ed1b0994-6f49-4953-a13c-53acbe41908d"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -91,7 +91,7 @@
 				<text><![CDATA[농기계부품외]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="1a5475cd-a647-419b-b77b-a3083c02d402" x="341" y="24" width="113" height="16"/>
+				<reportElement x="341" y="24" width="113" height="16" uuid="1a5475cd-a647-419b-b77b-a3083c02d402"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -105,7 +105,7 @@
 				<text><![CDATA[대한정밀]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="d07df0ff-6e85-4f9b-bd03-89dae1d2dca3" x="289" y="62" width="52" height="17"/>
+				<reportElement x="289" y="62" width="52" height="17" uuid="d07df0ff-6e85-4f9b-bd03-89dae1d2dca3"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -119,7 +119,7 @@
 				<text><![CDATA[업     태]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="30f2f10d-0e07-4f94-a56b-2d164a7215e3" x="454" y="24" width="31" height="16"/>
+				<reportElement x="454" y="24" width="31" height="16" uuid="30f2f10d-0e07-4f94-a56b-2d164a7215e3"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -133,7 +133,7 @@
 				<text><![CDATA[성명]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="e8b6cddf-391a-4be6-9b5b-f720de7fa7e0" x="266" y="1" width="23" height="78"/>
+				<reportElement x="266" y="1" width="23" height="78" uuid="e8b6cddf-391a-4be6-9b5b-f720de7fa7e0"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -149,7 +149,7 @@
 자]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="0099fd1c-ba65-482f-bffc-c3e17e0ec8dd" x="485" y="24" width="61" height="16"/>
+				<reportElement x="485" y="24" width="61" height="16" uuid="0099fd1c-ba65-482f-bffc-c3e17e0ec8dd"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -163,7 +163,7 @@
 				<text><![CDATA[김현찬]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="644f58aa-6297-4ae8-b5b1-68e80be4424a" x="289" y="1" width="52" height="23"/>
+				<reportElement x="289" y="1" width="52" height="23" uuid="644f58aa-6297-4ae8-b5b1-68e80be4424a"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -178,7 +178,7 @@
 등록번호]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="cb067407-cc61-4131-a69a-3c29acfc11b4" x="289" y="40" width="52" height="22"/>
+				<reportElement x="289" y="40" width="52" height="22" uuid="cb067407-cc61-4131-a69a-3c29acfc11b4"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -193,7 +193,7 @@
 소 재 지]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="6b6652ad-7210-4ae4-9a60-c006fee62381" x="341" y="62" width="89" height="17"/>
+				<reportElement x="341" y="62" width="89" height="17" uuid="6b6652ad-7210-4ae4-9a60-c006fee62381"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -207,7 +207,7 @@
 				<text><![CDATA[제조업]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="5733b2b0-88dd-4b70-b776-70a1da5ae18f" x="289" y="24" width="52" height="16"/>
+				<reportElement x="289" y="24" width="52" height="16" uuid="5733b2b0-88dd-4b70-b776-70a1da5ae18f"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -221,14 +221,14 @@
 				<text><![CDATA[상     호]]></text>
 			</staticText>
 			<textField>
-				<reportElement uuid="b9e643b1-310d-40d7-9184-19be7f096833" x="70" y="58" width="100" height="20"/>
+				<reportElement x="70" y="58" width="100" height="20" uuid="b9e643b1-310d-40d7-9184-19be7f096833"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font pdfFontName="HYGoThic-Medium" pdfEncoding="UniKS-UCS2-H"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{vendName}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="67da1d6b-c8f5-4b31-9b6e-2621114a03b9" x="169" y="58" width="27" height="20"/>
+				<reportElement x="169" y="58" width="27" height="20" uuid="67da1d6b-c8f5-4b31-9b6e-2621114a03b9"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="0.0"/>
@@ -242,13 +242,13 @@
 				<text><![CDATA[귀하]]></text>
 			</staticText>
 			<line>
-				<reportElement uuid="f8b98cf6-18d9-4c76-a82a-75b9f53916bc" x="1" y="78" width="195" height="1"/>
+				<reportElement x="1" y="78" width="195" height="1" uuid="f8b98cf6-18d9-4c76-a82a-75b9f53916bc"/>
 			</line>
 			<line>
-				<reportElement uuid="8b8d6a82-be6c-43a2-8d3f-728466ccb28b" x="1" y="40" width="195" height="1"/>
+				<reportElement x="1" y="40" width="195" height="1" uuid="8b8d6a82-be6c-43a2-8d3f-728466ccb28b"/>
 			</line>
 			<staticText>
-				<reportElement uuid="b4e6321e-8727-467d-9529-0714b041ce41" x="39" y="20" width="38" height="20"/>
+				<reportElement x="39" y="20" width="38" height="20" uuid="b4e6321e-8727-467d-9529-0714b041ce41"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="0.0"/>
@@ -262,7 +262,7 @@
 				<text><![CDATA[일자 : ]]></text>
 			</staticText>
 			<textField pattern="yyyy년 MM월 dd일">
-				<reportElement uuid="cf182d27-c52f-4711-80f3-04b3832b31f5" x="79" y="20" width="100" height="20"/>
+				<reportElement x="79" y="20" width="100" height="20" uuid="cf182d27-c52f-4711-80f3-04b3832b31f5"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font pdfFontName="HYGoThic-Medium" pdfEncoding="UniKS-UCS2-H"/>
 				</textElement>
@@ -273,7 +273,7 @@
 	<columnHeader>
 		<band height="25" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="5fc40505-4893-4940-a1c3-ef613c3dad6d" x="0" y="5" width="38" height="20"/>
+				<reportElement x="0" y="5" width="38" height="20" uuid="5fc40505-4893-4940-a1c3-ef613c3dad6d"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -287,7 +287,7 @@
 				<text><![CDATA[번호]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="8863e3a1-1683-4410-9048-b79ab50766d1" x="127" y="5" width="162" height="20"/>
+				<reportElement x="127" y="5" width="162" height="20" uuid="8863e3a1-1683-4410-9048-b79ab50766d1"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -301,7 +301,7 @@
 				<text><![CDATA[품명]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="aa18fe39-d61d-4c80-ac92-4aa01f2e3c52" x="38" y="5" width="89" height="20"/>
+				<reportElement x="38" y="5" width="89" height="20" uuid="aa18fe39-d61d-4c80-ac92-4aa01f2e3c52"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -315,7 +315,7 @@
 				<text><![CDATA[품번]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="9ce498c9-8456-4d47-83fa-4f5751418f68" x="289" y="5" width="77" height="20"/>
+				<reportElement x="289" y="5" width="77" height="20" uuid="9ce498c9-8456-4d47-83fa-4f5751418f68"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -329,7 +329,7 @@
 				<text><![CDATA[수량]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="b97de4f2-f7fa-4a2a-9d29-403c17caf27a" x="366" y="5" width="120" height="20"/>
+				<reportElement x="366" y="5" width="120" height="20" uuid="b97de4f2-f7fa-4a2a-9d29-403c17caf27a"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -343,7 +343,7 @@
 				<text><![CDATA[납기일]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="d566b2ef-3d5e-434a-b7c2-f30743ea5d33" x="486" y="5" width="60" height="20"/>
+				<reportElement x="486" y="5" width="60" height="20" uuid="d566b2ef-3d5e-434a-b7c2-f30743ea5d33"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -361,7 +361,7 @@
 	<detail>
 		<band height="20" splitType="Stretch">
 			<textField>
-				<reportElement uuid="a58b0ac1-09d8-48d6-81e1-32b7254c0637" x="0" y="0" width="38" height="20"/>
+				<reportElement x="0" y="0" width="38" height="20" uuid="a58b0ac1-09d8-48d6-81e1-32b7254c0637"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -375,7 +375,7 @@
 				<textFieldExpression><![CDATA[$F{SEQ}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="1dbd3c95-9896-4361-a66d-6bf6beed821a" x="38" y="0" width="89" height="20"/>
+				<reportElement x="38" y="0" width="89" height="20" uuid="1dbd3c95-9896-4361-a66d-6bf6beed821a"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -389,7 +389,7 @@
 				<textFieldExpression><![CDATA[$F{ITEM_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="74db64f4-d389-4c74-8163-a380a0a90de0" x="289" y="0" width="77" height="20"/>
+				<reportElement x="289" y="0" width="77" height="20" uuid="74db64f4-d389-4c74-8163-a380a0a90de0"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -403,7 +403,7 @@
 				<textFieldExpression><![CDATA[$F{QTY}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="26ba6751-4ab9-47f0-954b-b317ee6ee09a" x="366" y="0" width="120" height="20"/>
+				<reportElement x="366" y="0" width="120" height="20" uuid="26ba6751-4ab9-47f0-954b-b317ee6ee09a"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -417,7 +417,7 @@
 				<textFieldExpression><![CDATA[$F{DT}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="3cb0956c-5032-4d12-b575-9c2279853762" x="486" y="0" width="60" height="20"/>
+				<reportElement x="486" y="0" width="60" height="20" uuid="3cb0956c-5032-4d12-b575-9c2279853762"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -431,7 +431,7 @@
 				<text><![CDATA[]]></text>
 			</staticText>
 			<textField>
-				<reportElement uuid="98a27b03-12dd-409c-82cd-e97ca1b9330d" x="127" y="0" width="162" height="20"/>
+				<reportElement x="127" y="0" width="162" height="20" uuid="98a27b03-12dd-409c-82cd-e97ca1b9330d"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -452,7 +452,7 @@
 	<lastPageFooter>
 		<band height="69">
 			<textField>
-				<reportElement uuid="c66406c5-1e56-496a-b857-d49978e08b41" x="38" y="25" width="328" height="44"/>
+				<reportElement x="38" y="25" width="328" height="44" uuid="c66406c5-1e56-496a-b857-d49978e08b41"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -466,7 +466,7 @@
 				<textFieldExpression><![CDATA[$P{remark}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="56129d4f-8790-48f8-85fa-79f950ab813f" x="366" y="25" width="60" height="15"/>
+				<reportElement x="366" y="25" width="60" height="15" uuid="56129d4f-8790-48f8-85fa-79f950ab813f"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -480,7 +480,7 @@
 				<text><![CDATA[담       당]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="d25ec7ee-79fe-4ee4-93b5-125bf906e842" x="426" y="25" width="60" height="15"/>
+				<reportElement x="426" y="25" width="60" height="15" uuid="d25ec7ee-79fe-4ee4-93b5-125bf906e842"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -494,7 +494,7 @@
 				<text><![CDATA[검       토]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="44ea9cb5-e0c6-4bae-b918-5502d092cf32" x="486" y="25" width="60" height="15"/>
+				<reportElement x="486" y="25" width="60" height="15" uuid="44ea9cb5-e0c6-4bae-b918-5502d092cf32"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -508,7 +508,7 @@
 				<text><![CDATA[승       인]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="2cd44b07-00bb-43e4-b477-350bd8dd5c02" x="0" y="0" width="289" height="20"/>
+				<reportElement x="0" y="0" width="289" height="20" uuid="2cd44b07-00bb-43e4-b477-350bd8dd5c02"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -522,7 +522,7 @@
 				<text><![CDATA[소   계]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="30201b0f-2af5-4d18-9364-e158431bfb54" x="289" y="0" width="77" height="20"/>
+				<reportElement x="289" y="0" width="77" height="20" uuid="30201b0f-2af5-4d18-9364-e158431bfb54"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -536,7 +536,7 @@
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="c83b7d0b-3d10-4f70-a9d1-767b82f59f32" x="366" y="0" width="120" height="20"/>
+				<reportElement x="366" y="0" width="120" height="20" uuid="c83b7d0b-3d10-4f70-a9d1-767b82f59f32"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -550,7 +550,7 @@
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="fb8fe878-5cda-4a38-9651-629ff9bbf179" x="486" y="0" width="60" height="20"/>
+				<reportElement x="486" y="0" width="60" height="20" uuid="fb8fe878-5cda-4a38-9651-629ff9bbf179"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -564,7 +564,7 @@
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="07264bbf-759f-4565-b600-c098324559e8" x="366" y="40" width="60" height="29"/>
+				<reportElement x="366" y="40" width="60" height="29" uuid="07264bbf-759f-4565-b600-c098324559e8"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -578,7 +578,7 @@
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="8720e726-505b-48f1-9552-28268366634e" x="426" y="40" width="60" height="29"/>
+				<reportElement x="426" y="40" width="60" height="29" uuid="8720e726-505b-48f1-9552-28268366634e"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -592,7 +592,7 @@
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="a97abb0d-f5d4-479b-a560-fab5eec673f7" x="486" y="40" width="60" height="29"/>
+				<reportElement x="486" y="40" width="60" height="29" uuid="a97abb0d-f5d4-479b-a560-fab5eec673f7"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -606,7 +606,7 @@
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="9d74cb3f-5b77-4839-8327-bac1bc962e6c" x="0" y="25" width="39" height="44"/>
+				<reportElement x="0" y="25" width="39" height="44" uuid="9d74cb3f-5b77-4839-8327-bac1bc962e6c"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>

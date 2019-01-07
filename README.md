@@ -6,7 +6,7 @@
 ## **개발환경**
 ```
 - JDK 1.8 
-- Spring 5.1.3
+- Spring 4.2.9
 - Bootstrap v4.1.3 (https://getbootstrap.com/)
 - Tomcat 8
 - MariaDB 10.2

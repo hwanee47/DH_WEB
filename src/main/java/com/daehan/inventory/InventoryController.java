@@ -69,13 +69,13 @@ public class InventoryController {
             param.put("MODEL",(String) json.get("MODEL"));
             param.put("ITEM_NAME",(String) json.get("ITEM_NAME"));
             param.put("ITEM_NUMBER",(String) json.get("ITEM_NUMBER"));
-            param.put("QTY",(String) json.get("QTY")+"EA");
+            param.put("QTY",(String) json.get("QTY")+" EA");
             param.put("DT",(String) json.get("DT"));
             
             list.add(param);
         }
         
-        for(int i=nameArray.size()+1; i<10; i++) {
+        for(int i=nameArray.size()+1; i<8; i++) {
         	HashMap<String,String> param = new HashMap<String, String>();
         	param.put("SEQ",String.valueOf(i));
             param.put("MODEL","");

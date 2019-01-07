@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="main" pageWidth="620" pageHeight="842" columnWidth="580" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="db07e05d-11c9-4e57-935e-1d1a597cc27d">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="main" pageWidth="620" pageHeight="842" columnWidth="600" leftMargin="0" rightMargin="20" topMargin="20" bottomMargin="20" uuid="db07e05d-11c9-4e57-935e-1d1a597cc27d">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -17,9 +17,9 @@
 		<band/>
 	</title>
 	<detail>
-		<band height="103" splitType="Stretch">
+		<band height="100" splitType="Stretch">
 			<subreport>
-				<reportElement x="0" y="0" width="555" height="100" uuid="cd451612-c0f2-45a7-96ca-b895965d6e65"/>
+				<reportElement uuid="cd451612-c0f2-45a7-96ca-b895965d6e65" x="0" y="0" width="555" height="100"/>
 				<subreportParameter name="vendName">
 					<subreportParameterExpression><![CDATA[$F{vendName}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -32,7 +32,7 @@
 		</band>
 		<band height="111">
 			<subreport>
-				<reportElement x="0" y="11" width="555" height="100" uuid="1c8bfc33-77c4-42a0-8ddc-664cb0bf6ab9"/>
+				<reportElement uuid="1c8bfc33-77c4-42a0-8ddc-664cb0bf6ab9" x="0" y="11" width="555" height="100"/>
 				<subreportParameter name="vendName">
 					<subreportParameterExpression><![CDATA[$F{vendName}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -43,7 +43,7 @@
 				<subreportExpression><![CDATA[$P{reportUrl} + "sub2.jasper"]]></subreportExpression>
 			</subreport>
 			<line>
-				<reportElement x="15" y="4" width="553" height="1" uuid="ee59de04-cb40-4ddc-bf2d-7541e57b5822"/>
+				<reportElement uuid="ee59de04-cb40-4ddc-bf2d-7541e57b5822" x="15" y="4" width="553" height="1"/>
 				<graphicElement>
 					<pen lineStyle="Dashed"/>
 				</graphicElement>

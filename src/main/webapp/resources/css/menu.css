@@ -18,7 +18,7 @@
 	.navbar-nav.side-nav {
           overflow: visible;
           font-size: 14px;
-          background: linear-gradient(135deg,#8f75da 0,#727cf5 60%);
+          background: #506ee4;/*linear-gradient(135deg,#8f75da 0,#727cf5 60%);*/
           position: fixed;
           padding: 80px 30px;
           height: 100%;

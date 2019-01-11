@@ -30,7 +30,7 @@
         <property name="url" value="jdbc:log4jdbc:mysql://awsmariadb.criwfu4tk6u4.ap-northeast-2.rds.amazonaws.com:3306/dh"/>
         <!-- <property name="url" value="jdbc:log4jdbc:mysql://localhost:3306/dh"/> -->
         <property name="username" value="hwanee"/>
-        <property name="password" value="rlawlsghks1!"/>
+        <property name="password" value=""/>
 	</bean>
     
     <bean id="dataSourceLog4j" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">

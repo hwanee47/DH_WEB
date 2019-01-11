@@ -7,13 +7,13 @@
 		SELECT
     		*
     	FROM
-    		MNG_VEND_TB
+    		mng_vend_tb
     	ORDER BY VEND_CD
 	</select> 
 	
 	<insert id="insertVend" parameterType="Map">
     	/*Standard.insertVend*/
-    	INSERT INTO MNG_VEND_TB
+    	INSERT INTO mng_vend_tb
     	(
     		VEND_CD
     		,VEND_NAME
@@ -24,7 +24,7 @@
     		,VEND_FAX
     	)
     	SELECT
-    		(SELECT IFNULL(MAX(VEND_CD),0)+1 FROM MNG_VEND_TB) 
+    		(SELECT IFNULL(MAX(VEND_CD),0)+1 FROM mng_vend_tb) 
     		,#{vendName}
     		,#{vendRep}
     		,#{vendNum}
@@ -36,7 +36,7 @@
 
 	<delete id="deleteVend" parameterType="Map">
 		/*Standard.deleteVend*/
-		DELETE FROM MNG_VEND_TB
+		DELETE FROM mng_vend_tb
 		WHERE
 			VEND_CD = #{vendCd}
 	
@@ -45,7 +45,7 @@
 
 	 <insert id="insertMaterial" parameterType="Map">
     	/*Standard.insertMaterial*/
-    	INSERT INTO MNG_MATERIAL_TB
+    	INSERT INTO mng_material_tb
     	(
     		VEND_CD
     		,MODEL
@@ -81,8 +81,8 @@
     		,A.HEAT_TREATMENT_HARDNESS
     		,A.REMARKS
     	FROM
-    		MNG_MATERIAL_TB A
-    		,MNG_VEND_TB B
+    		mng_material_tb A
+    		,mng_vend_tb B
     	WHERE
     		A.VEND_CD = B.VEND_CD
     	<if test="vendCd != null">
@@ -95,7 +95,7 @@
 	
 	<delete id="deleteMaterial" parameterType="Map">
 		/*Standard.deleteMaterial*/
-		DELETE FROM MNG_MATERIAL_TB
+		DELETE FROM mng_material_tb
 		WHERE
 			VEND_CD = #{vendCd}
 		AND MODEL = #{model}

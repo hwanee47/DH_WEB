@@ -15,11 +15,23 @@
             <param name="ConversionPattern" value="%d %5p %m%n" />
         </layout>  
     </appender>
+    
+    
+    <!-- 날짜별 로그 파일 생성 -->
+    <appender name="errFile" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${catalina.base}/logs/dh_web.log"/>
+        <param name="Append" value="true"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/> 
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %5p [%C{1}] %m %n" />
+        </layout>   
+    </appender>
 	
 	<!-- Application Loggers -->
 	<logger name="com.daehan" additivity="false">
 		<level value="debug" />
         <appender-ref ref="console"/>
+        
 	</logger>
 	
 	
@@ -36,8 +48,9 @@
 
 	<!-- Root Logger -->
 	<root>
-		<priority value="warn" />
+		<priority value="error" />
 		<appender-ref ref="console" />
+		<appender-ref ref="errFile"/>
 	</root>
 	
 </log4j:configuration>
